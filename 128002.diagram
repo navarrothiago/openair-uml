@@ -1,0 +1,145 @@
+format 222
+
+classcanvas 128002 class_ref 128002 // gtpu_l4_stack
+  classdiagramsettings member_max_width 0 end
+  xyzwh 57 95.8 2000 137 41
+end
+classcanvas 128130 class_ref 134530 // udp
+  classdiagramsettings member_max_width 0 end
+  xyzwh 364 93 2000 101 41
+end
+classcanvas 128258 class_ref 134658 // udp_application
+  classdiagramsettings member_max_width 0 end
+  xyz 342 18 2000
+end
+classcanvas 128514 class_ref 134786 // pcfp_l4_stack
+  classdiagramsettings member_max_width 0 end
+  xyz 690.2 97.6 2000
+end
+classcanvas 128642 class_ref 134914 // spgwu_s1u
+  classdiagramsettings member_max_width 0 end
+  xyz 77.6 178.2 2000
+end
+classcanvas 128770 class_ref 135042 // spgwu_app
+  classdiagramsettings member_max_width 0 end
+  xyz 352 396.2 2000
+end
+classcanvas 128898 class_ref 135170 // spgwu_sx
+  classdiagramsettings member_max_width 0 end
+  xyz 709.1 172.2 2000
+end
+classcanvas 130178 class_ref 135298 // pfcp_switch
+  classdiagramsettings member_max_width 0 end
+  xyz 349 482.3 2000
+end
+classcanvas 131458 class_ref 135426 // pfcp_session
+  classdiagramsettings member_max_width 0 end
+  xyz 347 572.3 2000
+end
+classcanvas 131586 class_ref 135554 // pfcp_pdr
+  classdiagramsettings member_max_width 0 end
+  xyz 576 572.3 2000
+end
+classcanvas 131714 class_ref 142082 // pfcp_far
+  classdiagramsettings member_max_width 0 end
+  xyz 124 572.3 2000
+end
+classcanvas 132354 class_ref 142210 // main
+  classdiagramsettings member_max_width 0 end
+  xyzwh 352.9 299.8 2000 107 55
+end
+classcanvas 132482 class_ref 142338 // itti_mw
+  classdiagramsettings member_max_width 0 end
+  xyz 196.5 236.8 2000
+end
+classcanvas 132866 class_ref 148866 // spgwu_config
+  classdiagramsettings member_max_width 0 end
+  xyz 561.8 235.5 2000
+end
+classcanvas 133122 class_ref 148994 // async_shell_cmd
+  classdiagramsettings member_max_width 0 end
+  xyz 330.1 178.8 2000
+end
+relationcanvas 129026 relation_ref 128002 // <composition>
+  decenter_begin 591
+  decenter_end 634
+  from ref 128002 z 2001 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129538 relation_ref 128386 // <dependency>
+  decenter_begin 435
+  from ref 128130 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129666 relation_ref 128514 // <generalisation>
+  from ref 128642 z 2001 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129794 relation_ref 128642 // <generalisation>
+  decenter_begin 448
+  from ref 128898 z 2001 to ref 128514
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129922 relation_ref 128770 // <composition>
+  decenter_begin 414
+  from ref 128770 z 2001 to point 755 412
+  line 130818 z 2001 to ref 128898
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130050 relation_ref 128898 // <composition>
+  from ref 128770 z 2001 to point 125 413
+  line 130690 z 2001 to ref 128642
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130562 relation_ref 129026 // <composition>
+  from ref 128514 z 2001 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131074 relation_ref 129154 // <composition>
+  from ref 128770 z 2001 to ref 130178
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131842 relation_ref 135682 // <aggregation>
+  from ref 131458 z 2001 to ref 131586
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131970 relation_ref 135810 // <aggregation>
+  from ref 131458 z 2001 to ref 131714
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132098 relation_ref 135938 // <aggregation>
+  from ref 130178 z 2001 to ref 131458
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132610 relation_ref 142466 // <dependency>
+  from ref 132354 z 2001 to ref 128770
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132738 relation_ref 142594 // <dependency>
+  from ref 132354 z 2001 to ref 132482
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132994 relation_ref 142722 // <dependency>
+  from ref 132354 z 2001 to ref 132866
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133250 relation_ref 142850 // <dependency>
+  from ref 132354 z 2001 to ref 133122
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

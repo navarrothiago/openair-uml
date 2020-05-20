@@ -1,0 +1,41 @@
+format 222
+
+classcanvas 128002 class_ref 142338 // itti_mw
+  classdiagramsettings member_max_width 0 end
+  xyz 227 15 2000
+end
+classcanvas 128130 class_ref 149250 // itti_task_ctxts
+  classdiagramsettings member_max_width 0 end
+  xyz 467 41 2000
+end
+classcanvas 128514 class_ref 149378 // itti_timer
+  classdiagramsettings member_max_width 0 end
+  xyz 53 228 2000
+end
+classcanvas 128770 class_ref 149506 // set
+  classdiagramsettings member_max_width 0 end
+  xyzwh 39 33 2000 93 57
+end
+relationcanvas 128386 relation_ref 143106 // <unidirectional association>
+  from ref 128002 z 2001 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128642 relation_ref 143234 // <unidirectional association>
+  decenter_end 585
+  from ref 128002 z 2001 to point 313 250
+  line 129410 z 2001 to ref 128514
+  role_a_pos 139 229 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128898 relation_ref 143362 // <aggregation>
+  from ref 128770 z 2001 to ref 128514
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129154 relation_ref 143490 // <unidirectional association>
+  from ref 128002 z 2001 to ref 128770
+  role_a_pos 141 39 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
