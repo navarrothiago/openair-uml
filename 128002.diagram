@@ -2,63 +2,63 @@ format 222
 
 classcanvas 128002 class_ref 128002 // gtpu_l4_stack
   classdiagramsettings member_max_width 0 end
-  xyzwh 57 95.8 2000 137 41
+  xyzwh 41.2 95.8 2000 137 41
 end
-classcanvas 128130 class_ref 134530 // udp
+classcanvas 128130 class_ref 134530 // udp_server
   classdiagramsettings member_max_width 0 end
-  xyzwh 364 93 2000 101 41
+  xyzwh 367.6 89.2 2000 101 41
 end
 classcanvas 128258 class_ref 134658 // udp_application
   classdiagramsettings member_max_width 0 end
-  xyz 342 18 2000
+  xyz 344.2 5.6 2000
 end
 classcanvas 128514 class_ref 134786 // pcfp_l4_stack
   classdiagramsettings member_max_width 0 end
-  xyz 690.2 97.6 2000
+  xyz 695.6 93 2000
 end
 classcanvas 128642 class_ref 134914 // spgwu_s1u
   classdiagramsettings member_max_width 0 end
-  xyz 77.6 178.2 2000
+  xyz 38 200.8 2000
 end
 classcanvas 128770 class_ref 135042 // spgwu_app
   classdiagramsettings member_max_width 0 end
-  xyz 352 396.2 2000
+  xyz 560.8 392.4 2000
 end
 classcanvas 128898 class_ref 135170 // spgwu_sx
   classdiagramsettings member_max_width 0 end
-  xyz 709.1 172.2 2000
+  xyz 695.1 204 2000
 end
 classcanvas 130178 class_ref 135298 // pfcp_switch
   classdiagramsettings member_max_width 0 end
-  xyz 349 482.3 2000
+  xyz 448.2 476.5 2000
 end
 classcanvas 131458 class_ref 135426 // pfcp_session
   classdiagramsettings member_max_width 0 end
-  xyz 347 572.3 2000
+  xyz 553.4 687.5 2000
 end
 classcanvas 131586 class_ref 135554 // pfcp_pdr
   classdiagramsettings member_max_width 0 end
-  xyz 576 572.3 2000
+  xyz 246.8 633.3 2000
 end
 classcanvas 131714 class_ref 142082 // pfcp_far
   classdiagramsettings member_max_width 0 end
-  xyz 124 572.3 2000
+  xyz 348.4 818.9 2000
 end
 classcanvas 132354 class_ref 142210 // main
   classdiagramsettings member_max_width 0 end
-  xyzwh 352.9 299.8 2000 107 55
+  xyzwh 359.5 293.8 2000 107 55
 end
 classcanvas 132482 class_ref 142338 // itti_mw
   classdiagramsettings member_max_width 0 end
-  xyz 196.5 236.8 2000
+  xyz 159.1 278 2000
 end
 classcanvas 132866 class_ref 148866 // spgwu_config
   classdiagramsettings member_max_width 0 end
-  xyz 561.8 235.5 2000
+  xyz 563.8 308.9 2000
 end
 classcanvas 133122 class_ref 148994 // async_shell_cmd
   classdiagramsettings member_max_width 0 end
-  xyz 330.1 178.8 2000
+  xyz 330.9 178.2 2000
 end
 relationcanvas 129026 relation_ref 128002 // <composition>
   decenter_begin 591
@@ -69,6 +69,7 @@ relationcanvas 129026 relation_ref 128002 // <composition>
 end
 relationcanvas 129538 relation_ref 128386 // <dependency>
   decenter_begin 435
+  decenter_end 557
   from ref 128130 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -86,13 +87,13 @@ relationcanvas 129794 relation_ref 128642 // <generalisation>
 end
 relationcanvas 129922 relation_ref 128770 // <composition>
   decenter_begin 414
-  from ref 128770 z 2001 to point 755 412
+  from ref 128770 z 2001 to point 755.6 412.2
   line 130818 z 2001 to ref 128898
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130050 relation_ref 128898 // <composition>
-  from ref 128770 z 2001 to point 125 413
+  from ref 128770 z 2001 to point 98 425.6
   line 130690 z 2001 to ref 128642
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -139,6 +140,25 @@ relationcanvas 132994 relation_ref 142722 // <dependency>
 end
 relationcanvas 133250 relation_ref 142850 // <dependency>
   from ref 132354 z 2001 to ref 133122
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133634 relation_ref 150018 // <generalisation>
+  from ref 128002 z 2001 to point 108 34.8
+  line 133762 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133890 relation_ref 150146 // <generalisation>
+  from ref 128514 z 2001 to point 753 35.6
+  line 134018 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134530 relation_ref 150402 // <unidirectional association>
+  from ref 128642 z 2001 to point 21.4 222.2
+  line 134914 z 2001 to point 18 528
+  line 134658 z 2001 to ref 130178
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 11
+  revision 14
   modified_by 2 "navarro"
 
 
@@ -93,9 +93,17 @@ ${inlines}
 "
 	    classrelation_ref 128130 // <composition>
       end
+
+      classrelation 151554 // <generalisation>
+	relation 150018 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 151554 // <generalisation>
+	  b parent class_ref 134658 // udp_application
+      end
     end
 
-    class 134530 "udp"
+    class 134530 "udp_server"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -142,6 +150,22 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 161282 "handle_receive"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "recv_buffer" explicit_type "char*"
+	  param in name "bytes_transferred" explicit_type "std::size_t"
+	  param in name "endpoint" explicit_type "r_endpoint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 134786 "pcfp_l4_stack"
@@ -196,6 +220,14 @@ ${inlines}
 "
 	    classrelation_ref 129794 // <composition>
       end
+
+      classrelation 151682 // <generalisation>
+	relation 150146 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 151682 // <generalisation>
+	  b parent class_ref 134658 // udp_application
+      end
     end
 
     class 134914 "spgwu_s1u"
@@ -221,6 +253,41 @@ ${inlines}
 
       classrelation 129538 // <composition>
 	relation_ref 128898 // <composition>
+      end
+
+      operation 141570 "spgwu_s1u_task"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 151810 // <composition>
+	relation 150274 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 151810 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 151938 // <composition>
+      end
+
+      classrelation 152066 // <unidirectional association>
+	relation 150402 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 152066 // <unidirectional association>
+	  b parent class_ref 135298 // pfcp_switch
       end
     end
 
@@ -272,6 +339,20 @@ ${inlines}
 "
 	    classrelation_ref 130050 // <composition>
       end
+
+      operation 141314 "spgwu_app_task"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 135170 "spgwu_sx"
@@ -297,6 +378,20 @@ ${inlines}
 
       classrelation 129282 // <composition>
 	relation_ref 128770 // <composition>
+      end
+
+      operation 141442 "spgwu_sx_task"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -327,6 +422,90 @@ ${inlines}
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 137218 // <aggregation>
+      end
+
+      operation 141698 "pdn_read_loop"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "sched_params" explicit_type "util::thread_sched_params"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 148226 "setup_pdn_interfaces"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 154754 "create_pdn_socket"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "ifname" explicit_type "char*"
+	  param in name "promisc" explicit_type "bool"
+	  param in name "if_index" explicit_type "int&"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 151938 // <composition>
+	relation_ref 150274 // <composition>
+      end
+
+      operation 161410 "pfcp_session_look_up_pack_in_access"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "iph" explicit_type "struct iphdr*"
+	  param in name "num_bytes" explicit_type "const std::size_t"
+	  param in name "r_endpoint" explicit_type "endpoint&"
+	  param in name "tunnnel_id" explicit_type "uint32_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 161538 "get_pfcp_ul_pdrs_by_up_teid"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "teid" explicit_type "teid_t"
+	  param in name "pdrs" explicit_type "vector"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -387,6 +566,24 @@ ${inlines}
       
       classrelation 136706 // <aggregation>
 	relation_ref 135682 // <aggregation>
+      end
+
+      operation 161666 "look_up_pack_in_access"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "iphrd" explicit_type "struct iphdr*"
+	  param in name "num_bytes" explicit_type "size_t"
+	  param in name "r_endpoint" explicit_type "endpoint"
+	  param in name "tunnel_id" explicit_type "uint32_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -690,10 +887,30 @@ ${inlines}
      end
     sequencediagram 134530 "Run spgwu program"
       sequencediagramsettings end
-      overlapping_bars size A4
+      overlapping_bars size 1188x1188
     end
 
     class 149122 "user"
+      visibility package stereotype "actor"
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    sequencediagram 147586 "Send packet to PDN"
+      sequencediagramsettings end
+      overlapping_bars size 1188x1188
+    end
+
+    class 156034 "socket_udp_uplink"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
