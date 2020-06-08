@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 14
+  revision 16
   modified_by 2 "navarro"
 
 
@@ -507,6 +507,30 @@ ${inlines}
 	
 	
       end
+
+      attribute 128002 "up_seid2pfcp_sessions"
+	private explicit_type "HashMap"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128130 "ul_s1u_teid2pfcp_pdr"
+	private explicit_type "HashMap"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 135426 "pfcp_session"
@@ -549,6 +573,20 @@ ${inlines}
       classrelation 137218 // <aggregation>
 	relation_ref 135938 // <aggregation>
       end
+
+      operation 168578 "getFAR"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 135554 "pfcp_pdr"
@@ -564,6 +602,20 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 168322 "getLocalSessionEndpointId"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
       classrelation 136706 // <aggregation>
 	relation_ref 135682 // <aggregation>
       end
@@ -578,6 +630,22 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 168194 "get_pfcp_session_by_up_seid"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "cp_seid" explicit_type "uint64_t"
+	  param in name "session" type class_ref 135426 // pfcp_session
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -602,6 +670,20 @@ ${inlines}
       
       classrelation 136962 // <aggregation>
 	relation_ref 135810 // <aggregation>
+      end
+
+      operation 168706 "apply_forwarding_rules"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -861,8 +943,6 @@ ${inlines}
       end
     end
   end
-
-  package_ref 128130 // sequence-diagram
 
   usecaseview 128002 "Use case view"
     

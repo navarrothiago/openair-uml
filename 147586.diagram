@@ -1,40 +1,64 @@
 format 222
 
 classinstance 128002 class_ref 156034 // socket_udp_uplink
-  name ""   xyz 3 4 2000 life_line_z 2000
+  name ""   xyz 3 4 2000 life_line_z 3010
 classinstance 128130 class_ref 134914 // spgwu_s1u
-  name ""   xyz 401 5 2000 life_line_z 2000
+  name ""   xyz 345 7 2000 life_line_z 3010
 classinstance 129026 class_ref 134530 // udp_server
-  name ""   xyz 202 4 2000 life_line_z 2000
+  name ""   xyz 184 4 2000 life_line_z 3010
 classinstance 130434 class_ref 135298 // pfcp_switch
-  name ""   xyz 634 4 2000 life_line_z 2000
+  name ""   xyz 536 4 2000 life_line_z 1990
 classinstance 130818 class_ref 135554 // pfcp_pdr
-  name ""   xyz 824 4 2000 life_line_z 2000
+  name ""   xyz 733 4 2000 life_line_z 1990
 note 131458 "pdr were created when the session is established. See create_session method"
-  xyzwh 392 253 2000 185 95
+  xyzwh 752 117 2031 185 95
+fragment 132482 "iterator pdrs"
+  form "pdrs" xyzwh 468 305 1985 574 324
+end
+classinstance 133890 class_ref 135426 // pfcp_session
+  name ""   xyz 819 4 2000 life_line_z 2000
+note 134274 "TODO: I could not find where the priority is used."
+  xyzwh 809 342 2000 83 141
+classinstance 134402 class_ref 142082 // pfcp_far
+  name ""   xyz 959 4 2000 life_line_z 2000
+image 134914 "/home/navarro/Pictures/Screenshot_2020-05-28_19-47-39.png" w 537 xyz -4 306 1980 end
+note 135042 "Confuse. It could be more simple"
+  color magenta  xyzwh 895 313 2005 95 211
 durationcanvas 129154 classinstance_ref 128002 // :socket_udp_uplink
   xyzwh 67 65 2010 11 44
 end
 durationcanvas 129282 classinstance_ref 129026 // :udp_server
-  xyzwh 244 75 2010 11 46
+  xyzwh 226 75 2010 11 46
 end
 durationcanvas 129794 classinstance_ref 129026 // :udp_server
-  xyzwh 244 143 2010 11 40
+  xyzwh 226 143 2010 11 40
 end
 durationcanvas 129922 classinstance_ref 128002 // :socket_udp_uplink
   xyzwh 67 136 2010 11 43
 end
 durationcanvas 130178 classinstance_ref 128130 // :spgwu_s1u
-  xyzwh 444 164 2010 11 53
+  xyzwh 388 164 2010 11 53
 end
 durationcanvas 130562 classinstance_ref 130434 // :pfcp_switch
-  xyzwh 677 184 2010 11 176
+  xyzwh 579 185 1995 11 410
   overlappingdurationcanvas 131202
-    xyzwh 683 242 2020 11 27
+    xyzwh 585 242 2020 11 27
   end
 end
 durationcanvas 132226 classinstance_ref 130818 // :pfcp_pdr
-  xyzwh 857 289 2010 11 25
+  xyzwh 766 338 1995 11 25
+end
+durationcanvas 133378 classinstance_ref 130818 // :pfcp_pdr
+  xyzwh 766 449 2000 11 42
+end
+durationcanvas 133634 classinstance_ref 130818 // :pfcp_pdr
+  xyzwh 766 390 2000 11 48
+end
+durationcanvas 134018 classinstance_ref 133890 // :pfcp_session
+  xyzwh 868 513 2010 11 25
+end
+durationcanvas 135170 classinstance_ref 134402 // :pfcp_far
+  xyzwh 990 558 2010 11 25
 end
 msg 129410 synchronous
   from durationcanvas_ref 129154
@@ -53,26 +77,50 @@ msg 130306 synchronous
   to durationcanvas_ref 130178
   yz 164 2015 msg operation_ref 161282 // "handle_receive(in recv_buffer : char*, in bytes_transferred : std::size_t, in endpoint : r_endpoint)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 265 151
+  label_xy 247 151
 msg 130690 synchronous
   from durationcanvas_ref 130178
   to durationcanvas_ref 130562
-  yz 194 3005 msg operation_ref 161410 // "pfcp_session_look_up_pack_in_access(in iph : struct iphdr*, in num_bytes : const std::size_t, in r_endpoint : endpoint&, in tunnnel_id : uint32_t)"
+  yz 195 3005 msg operation_ref 161410 // "pfcp_session_look_up_pack_in_access(in iph : struct iphdr*, in num_bytes : const std::size_t, in r_endpoint : endpoint&, in tunnnel_id : uint32_t)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 387 181
+  label_xy 331 182
 reflexivemsg 131330 synchronous
   to durationcanvas_ref 131202
-  yz 242 2025 msg operation_ref 161538 // "get_pfcp_ul_pdrs_by_up_teid(in teid : teid_t, in pdrs : vector)"
+  yz 242 3005 msg operation_ref 161538 // "get_pfcp_ul_pdrs_by_up_teid(in teid : teid_t, in pdrs : vector)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "teid, &pdrs_out"
-  label_xy 492 223
+  label_xy 394 223
 msg 132354 synchronous
   from durationcanvas_ref 130562
   to durationcanvas_ref 132226
-  yz 289 2015 msg operation_ref 161666 // "look_up_pack_in_access(in iphrd : struct iphdr*, in num_bytes : size_t, in r_endpoint : endpoint, in tunnel_id : uint32_t)"
+  yz 339 3010 msg operation_ref 161666 // "look_up_pack_in_access(in iphrd : struct iphdr*, in num_bytes : size_t, in r_endpoint : endpoint, in tunnel_id : uint32_t)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "teid"
-  label_xy 698 274
+  label_xy 567 323
+msg 133506 synchronous
+  from durationcanvas_ref 130562
+  to durationcanvas_ref 133378
+  yz 456 2005 msg operation_ref 168194 // "get_pfcp_session_by_up_seid(in cp_seid : uint64_t, in session : pfcp_session)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 547 438
+msg 133762 synchronous
+  from durationcanvas_ref 130562
+  to durationcanvas_ref 133634
+  yz 391 2005 msg operation_ref 168322 // "getLocalSessionEndpointId()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 568 375
+msg 134146 synchronous
+  from durationcanvas_ref 130562
+  to durationcanvas_ref 134018
+  yz 516 3010 msg operation_ref 168578 // "getFAR()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 707 500
+msg 135298 synchronous
+  from durationcanvas_ref 130562
+  to durationcanvas_ref 135170
+  yz 558 2015 msg operation_ref 168706 // "apply_forwarding_rules()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 704 541
 line 131586 -_-_
-  from ref 131458 z 2026 to ref 131330
+  from ref 131458 z 2032 to ref 131330
 end

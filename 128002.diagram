@@ -87,13 +87,13 @@ relationcanvas 129794 relation_ref 128642 // <generalisation>
 end
 relationcanvas 129922 relation_ref 128770 // <composition>
   decenter_begin 414
-  from ref 128770 z 2001 to point 755.6 412.2
+  from ref 128770 z 2001 to point 755 412
   line 130818 z 2001 to ref 128898
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130050 relation_ref 128898 // <composition>
-  from ref 128770 z 2001 to point 98 425.6
+  from ref 128770 z 2001 to point 98 425
   line 130690 z 2001 to ref 128642
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -144,19 +144,19 @@ relationcanvas 133250 relation_ref 142850 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 133634 relation_ref 150018 // <generalisation>
-  from ref 128002 z 2001 to point 108 34.8
+  from ref 128002 z 2001 to point 108 34
   line 133762 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 133890 relation_ref 150146 // <generalisation>
-  from ref 128514 z 2001 to point 753 35.6
+  from ref 128514 z 2001 to point 753 35
   line 134018 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 134530 relation_ref 150402 // <unidirectional association>
-  from ref 128642 z 2001 to point 21.4 222.2
+  from ref 128642 z 2001 to point 21 222
   line 134914 z 2001 to point 18 528
   line 134658 z 2001 to ref 130178
   no_role_a no_role_b
