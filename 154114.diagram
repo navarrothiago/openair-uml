@@ -1,0 +1,5 @@
+format 222
+
+classinstance 128002 class_ref 169090 // socket_udp_downlink
+  name ""   xyz 19 4 2000 life_line_z 2000
+end
