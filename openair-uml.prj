@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 19
+  revision 23
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -565,6 +565,69 @@ ${inlines}
 	
 	
       end
+
+      operation 189058 "create_packet_in_access"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "pdr" explicit_type "pfcp::pfcp_pdr"
+	  param in name "fteid" explicit_type "pfcp::fteid_t"
+	  param in name "cause" explicit_type "uint8_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 189186 "add_pfcp_ul_pdr_by_up_teid"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "teid" explicit_type "teid_t"
+	  param in name "pdr" explicit_type "pfcp::pfcp_pdr"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 189314 "add_pfcp_dl_pdr_by_ue_ip"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "ue_ip" explicit_type "uint32_t"
+	  param in name "pdr" explicit_type "pfcp::pfcp_pdr"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 195842 "generate_fteid_s1u"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 135426 "pfcp_session"
@@ -646,6 +709,24 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 188930 "create"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "cr_pdr" explicit_type "pfcp::create_pdr"
+	  param in name "cause" explicit_type "pfcp::cause_t"
+	  param in name "offending_ie" explicit_type "uint16_t"
+	  param in name "allocated_fteid" explicit_type "pfcp::fteid_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	

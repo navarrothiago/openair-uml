@@ -30,15 +30,15 @@ classcanvas 128898 class_ref 135170 // spgwu_sx
 end
 classcanvas 130178 class_ref 135298 // pfcp_switch
   classdiagramsettings member_max_width 0 end
-  xyz 448.2 476.5 2000
+  xyz 461.2 519.5 2000
 end
 classcanvas 131458 class_ref 135426 // pfcp_session
   classdiagramsettings member_max_width 0 end
-  xyz 525.4 711.5 2000
+  xyz 445.4 814.5 2000
 end
 classcanvas 131586 class_ref 135554 // pfcp_pdr
   classdiagramsettings member_max_width 0 end
-  xyz 184.8 758.3 2000
+  xyz 57.8 664.3 2000
 end
 classcanvas 131714 class_ref 142082 // pfcp_far
   classdiagramsettings member_max_width 0 end
@@ -87,7 +87,7 @@ relationcanvas 129794 relation_ref 128642 // <generalisation>
 end
 relationcanvas 129922 relation_ref 128770 // <composition>
   decenter_begin 414
-  from ref 128770 z 2001 to point 755 412
+  from ref 128770 z 2001 to point 755 423
   line 130818 z 2001 to ref 128898
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -144,7 +144,7 @@ relationcanvas 133250 relation_ref 142850 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 133634 relation_ref 150018 // <generalisation>
-  from ref 128002 z 2001 to point 108 34
+  from ref 128002 z 2001 to point 103 31
   line 133762 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -157,7 +157,7 @@ relationcanvas 133890 relation_ref 150146 // <generalisation>
 end
 relationcanvas 134530 relation_ref 150402 // <unidirectional association>
   from ref 128642 z 2001 to point 21 222
-  line 134914 z 2001 to point 18 528
+  line 134914 z 2001 to point 22 645
   line 134658 z 2001 to ref 130178
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b

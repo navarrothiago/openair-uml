@@ -1,33 +1,33 @@
 format 222
 
 classinstance 128002 class_ref 149122 // user
-  name ""   xyz 24.0319 5.46041 2000 life_line_z 2000
+  name ""   xyz 24.2619 5.71041 2000 life_line_z 2000
 classinstance 128130 class_ref 142210 // main
-  name ""   xyz 88.3226 4.37149 2000 life_line_z 2000
+  name ""   xyz 87.6426 4.35149 2000 life_line_z 2000
 classinstance 128642 class_ref 135042 // spgwu_app
-  name ""   xyz 501.134 189.379 2000 life_line_z 2000
+  name ""   xyz 501.024 189.209 2000 life_line_z 2000
 classinstance 128770 class_ref 148994 // async_shell_cmd
-  name ""   xyz 297.122 156.231 2000 life_line_z 2000
+  name ""   xyz 296.772 156.931 2000 life_line_z 2000
 classinstance 128898 class_ref 142338 // itti_mw
-  name ""   xyz 221.101 24.0414 2000 life_line_z 2000
+  name ""   xyz 221.821 24.2214 2000 life_line_z 2000
 note 130306 "./spgwu <args>"
-  xyzwh 10.8828 125.375 3005 129 35
+  xyzwh 10.0228 125.995 3005 129 35
 note 130946 "start timer manager task thread"
-  xyzwh 303.144 48.3622 3005 98 79
+  xyzwh 303.254 48.4322 3005 98 79
 note 131970 "it is passed a function as params."
-  xyzwh 491.221 87.402 2000 129 78
+  xyzwh 491.771 86.652 2000 129 78
 classinstance 134018 class_ref 135170 // spgwu_sx
-  name ""   xyz 603.577 271.549 2000 life_line_z 2000
+  name ""   xyz 603.637 271.399 2000 life_line_z 2000
 classinstance 134146 class_ref 135298 // pfcp_switch
-  name ""   xyz 810.023 431.965 2000 life_line_z 2000
+  name ""   xyz 810.533 434.155 2000 life_line_z 2000
 note 134658 "async"
-  color red  xyzwh 148.624 150.339 3005 74 35
+  color red  xyzwh 149.474 150.209 3005 74 35
 classinstance 135298 class_ref 134914 // spgwu_s1u
-  name ""   xyz 670.663 350.324 2000 life_line_z 2000
+  name ""   xyz 670.643 350.364 2000 life_line_z 2000
 note 138626 "async: new threads"
-  color red  xyzwh 589.356 573.421 2021 119 54
+  color red  xyzwh 589.636 572.811 2021 119 54
 note 140802 "creates one socket to read  and other to write"
-  xyzwh 1028.95 577.651 2041 143 74
+  xyzwh 1028.34 578.191 2041 143 74
 note 141314 "spgwu_sx_task
 
 case S1U_ECHO_REQUEST:
@@ -40,7 +40,7 @@ case TIME_OUT:
     case TASK_SPGWU_PFCP_SWITCH_MAX_COMMIT_INTERVAL:
 case TERMINATE:
 case HEALTH_PING:"
-  color gray  font small  xyzwh 855.426 242.429 1995 325 176
+  color gray  font small  xyzwh 855.796 242.119 1995 325 176
 note 141698 "spgwu_app_task
 
 case SXAB_HEARTBEAT_REQUEST:
@@ -88,7 +88,7 @@ case PFCP_SESSION_MODIFICATION_RESPONSE:
 case PFCP_SESSION_DELETION_RESPONSE:
 case PFCP_SESSION_REPORT_REQUEST:
  "
-  color gray  font small  xyzwh 6.3539 209.141 1995 321 620
+  color gray  font small  xyzwh 6.6139 209.121 1995 321 620
 note 142082 "spgwu_s1u_task
 
 case S1U_ECHO_RESPONSE:
@@ -103,68 +103,68 @@ case GTPU_ERROR_INDICATION:
 case GTPU_SUPPORTED_EXTENSION_HEADERS_NOTIFICATION:
 case GTPU_END_MARKER:
 case GTPU_G_PDU:"
-  color gray  font small  xyzwh 851.11 29.65 2005 330 201
+  color gray  font small  xyzwh 851.26 29.34 2005 330 201
 note 142466 "WARN: There are some type of message (gray notes) that are duplicate. Maybe this part of the code is in course of refactoring."
-  color gold  xyzwh 987.27 676.85 2005 192 137
+  color gold  xyzwh 987.29 676.69 2005 192 137
 durationcanvas 128258 classinstance_ref 128002 // :user
-  xyzwh 38 62.88 2010 11 44
+  xyzwh 38 62.21 2010 11 44
 end
 durationcanvas 128386 classinstance_ref 128130 // :main
-  xyzwh 107 51.85 2010 11 309
+  xyzwh 106 51.35 2010 11 309
 end
 durationcanvas 129282 classinstance_ref 128642 // :spgwu_app
-  xyzwh 541 237 2010 11 328
+  xyzwh 544 237 2010 11 328
 end
 durationcanvas 129794 classinstance_ref 128770 // :async_shell_cmd
-  xyzwh 360 201.55 2015 11 28
+  xyzwh 359 201.18 2015 11 28
 end
 durationcanvas 130050 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 69.88 2010 11 30
+  xyzwh 247 69.21 2010 11 30
 end
 durationcanvas 130690 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 111.11 2010 11 26
+  xyzwh 247 111.01 2010 11 26
 end
 durationcanvas 132866 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 280.15 2010 11 31
+  xyzwh 247 280.65 2010 11 31
 end
 durationcanvas 134402 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 148.19 2010 11 40
+  xyzwh 247 147.42 2010 11 40
 end
 durationcanvas 135426 classinstance_ref 134018 // :spgwu_sx
-  xyzwh 641 318.21 2010 11 72
+  xyzwh 641 318.11 2010 11 72
 end
 durationcanvas 135682 classinstance_ref 135298 // :spgwu_s1u
-  xyzwh 713 393.66 2010 11 90
+  xyzwh 713 393.19 2010 11 90
 end
 durationcanvas 135938 classinstance_ref 134146 // :pfcp_switch
-  xyzwh 852 487.31 2010 11 193
+  xyzwh 852 487.21 2010 11 193
   overlappingdurationcanvas 140034
-    xyzwh 858 551.85 2020 11 109
+    xyzwh 858 551.35 2020 11 109
     overlappingdurationcanvas 140290
-      xyzwh 864 575.59 2030 11 25
+      xyzwh 864 575.69 2030 11 25
     end
     overlappingdurationcanvas 140546
-      xyzwh 864 615.39 2030 11 25
+      xyzwh 864 615.49 2030 11 25
     end
   end
 end
 durationcanvas 136450 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 347.77 2010 11 28
+  xyzwh 247 347.2 2010 11 28
 end
 durationcanvas 136706 classinstance_ref 128898 // :itti_mw
-  xyzwh 247 437.21 2010 11 34
+  xyzwh 247 437.11 2010 11 34
 end
 durationcanvas 137346 classinstance_ref 128642 // :spgwu_app
-  xyzwh 541 739.63 2010 11 40
+  xyzwh 544 737.59 2010 11 40
 end
 durationcanvas 137602 classinstance_ref 134018 // :spgwu_sx
-  xyzwh 641 739.63 2010 11 40
+  xyzwh 641 737.59 2010 11 40
 end
 durationcanvas 138114 classinstance_ref 135298 // :spgwu_s1u
-  xyzwh 713 739.63 2010 11 40
+  xyzwh 713 737.59 2010 11 40
 end
 durationcanvas 139394 classinstance_ref 134146 // :pfcp_switch
-  xyzwh 852 739.63 2010 11 40
+  xyzwh 852 737.59 2010 11 40
 end
 msg 128514 synchronous
   from durationcanvas_ref 128258
@@ -207,7 +207,7 @@ spgwu_app_sched_param"
   label_xy 260 270
 reflexivemsg 134530 synchronous
   to durationcanvas_ref 134402
-  yz 148 2015 msg operation_ref 141186 // "timer_manager_task(in sched_params : util::thread_sched_params)"
+  yz 147 2015 msg operation_ref 141186 // "timer_manager_task(in sched_params : util::thread_sched_params)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 264 135
 msg 135554 synchronous
@@ -248,22 +248,22 @@ s1u_sched_params"
   label_xy 264 429
 reflexivemsg 137474 synchronous
   to durationcanvas_ref 137346
-  yz 739 2015 msg operation_ref 141314 // "spgwu_app_task()"
+  yz 737 2015 msg operation_ref 141314 // "spgwu_app_task()"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 446 727
 reflexivemsg 137730 synchronous
   to durationcanvas_ref 137602
-  yz 739 2015 msg operation_ref 141442 // "spgwu_sx_task()"
+  yz 737 2015 msg operation_ref 141442 // "spgwu_sx_task()"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 586 726
 reflexivemsg 138242 synchronous
   to durationcanvas_ref 138114
-  yz 739 2015 msg operation_ref 141570 // "spgwu_s1u_task()"
+  yz 737 2015 msg operation_ref 141570 // "spgwu_s1u_task()"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 706 723
 reflexivemsg 139522 synchronous
   to durationcanvas_ref 139394
-  yz 739 2016 msg operation_ref 141698 // "pdn_read_loop(in sched_params : util::thread_sched_params)"
+  yz 737 2016 msg operation_ref 141698 // "pdn_read_loop(in sched_params : util::thread_sched_params)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 872 731
 reflexivemsg 140162 synchronous
