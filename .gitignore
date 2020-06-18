@@ -1,3 +1,5 @@
 2.lock
 2.session
 imgs/
+*.d
+src/

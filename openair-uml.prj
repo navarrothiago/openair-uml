@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 23
+  revision 24
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -291,6 +291,24 @@ ${inlines}
 "
 	    classrelation_ref 152066 // <unidirectional association>
 	  b parent class_ref 135298 // pfcp_switch
+      end
+
+      operation 202370 "send_g_pdu"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "peer_addr" explicit_type "struct in_addr"
+	  param in name "tunnel_id" explicit_type "uint32_t"
+	  param in name "send_buffer" explicit_type "char*"
+	  param in name "num_bytes" explicit_type "ssize_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -621,6 +639,22 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 202498 "send_to_core"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "ip_packet" explicit_type "char*"
+	  param in name "len" explicit_type "ssize_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -1152,7 +1186,7 @@ ${inlines}
       overlapping_bars size 1188x1188
     end
 
-    class 156034 "socket_udp_uplink"
+    class 156034 "socket_udp_uplink_core"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1172,7 +1206,7 @@ ${inlines}
       overlapping_bars size A4
     end
 
-    class 169090 "socket_udp_downlink"
+    class 169090 "socket_udp_uplink_access"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1206,6 +1240,7 @@ ${inlines}
       mysql_decl ""
       
     end
+
   end
 
   deploymentview 128002 "Deployment View"
