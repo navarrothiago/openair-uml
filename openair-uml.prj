@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 24
+  revision 31
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -1240,7 +1240,6 @@ ${inlines}
       mysql_decl ""
       
     end
-
   end
 
   deploymentview 128002 "Deployment View"
@@ -1338,5 +1337,379 @@ ${inlines}
 	
       end
     end
+  end
+
+  usecaseview 134530 "Activity view"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    activity 141058 "Rules path"
+      activityaction 142082 "Check actions"
+	opaque_action
+	flow 145794 "<flow>"
+	  on activitynode_ref 142466 // decision
+	end
+      end
+
+      activitynode 142338 initial_node ""
+	flow 148354 "<flow>"
+	  on activityaction_ref 142978 // activity action Lookup FAR
+	end
+      end
+
+      activitynode 142466 decision ""
+	flow 145922 "forward"
+	  on activityaction_ref 142210 // activity action Check forwarding interface
+	end
+
+	flow 146050 "drop"
+	  on activityaction_ref 142338 // activity action Drop
+	end
+
+	flow 147842 "buffer"
+	  on activityaction_ref 142850 // activity action Buffer packet
+	end
+      end
+
+      activityaction 142210 "Check forwarding interface"
+	opaque_action
+	flow 146178 "<flow>"
+	  on activitynode_ref 142594 // decision
+	end
+      end
+
+      activityaction 142338 "Drop"
+	opaque_action
+	flow 146562 "<flow>"
+	  on activitynode_ref 142722 // activity_final
+	end
+      end
+
+      activitynode 142594 decision ""
+	flow 146306 "CORE"
+	  on activityaction_ref 142466 // activity action Forward to PDN
+	end
+
+	flow 146434 "ACCESS"
+	  on activityaction_ref 142594 // activity action Forward to acess
+	end
+      end
+
+      activityaction 142466 "Forward to PDN"
+	opaque_action
+	flow 147586 "<flow>"
+	  on activitynode_ref 142850 // activity_final
+	end
+      end
+
+      parameter 147714 "Ingress packet" explicit_type ""
+	unordered 
+	in
+	flow 147970 "<flow>"
+	  on activityaction_ref 142850 // activity action Buffer packet
+	end
+
+	flow 148098 "<flow>"
+	  on activityaction_ref 142338 // activity action Drop
+	end
+
+	flow 148482 "<flow>"
+	  on activityaction_ref 142978 // activity action Lookup FAR
+	end
+
+	flow 148994 "<flow>"
+	  on activityaction_ref 142466 // activity action Forward to PDN
+	end
+
+	flow 149122 "<flow>"
+	  on activityaction_ref 142594 // activity action Forward to acess
+	end
+      end
+
+      activityaction 142594 "Forward to acess"
+	opaque_action
+	flow 147714 "<flow>"
+	  on activitynode_ref 142978 // activity_final
+	end
+      end
+
+      activitynode 142722 activity_final ""
+      end
+
+      activitynode 142850 activity_final ""
+      end
+
+      activitynode 142978 activity_final ""
+      end
+
+      activityaction 142850 "Buffer packet"
+	opaque_action
+	flow 148226 "<flow>"
+	  on activitynode_ref 143106 // activity_final
+	end
+      end
+
+      activitynode 143106 activity_final ""
+      end
+
+      activityaction 142978 "Lookup FAR"
+	opaque_action
+	flow 148610 "<flow>"
+	  on activityobject_ref 141186 // activity object FAR
+	end
+      end
+
+      activityobject 141186 "FAR"
+	 explicit_type ""
+	unordered 
+	flow 148738 "<flow>"
+	  on activityaction_ref 142082 // activity action Check actions
+	end
+
+	flow 148866 "<flow>"
+	  on activityaction_ref 142210 // activity action Check forwarding interface
+	end
+      end
+    end
+
+    activity 134530 "Process Input Path"
+      activitynode 128002 initial_node ""
+	flow 128002 "<flow>"
+	  on activityaction_ref 128002 // activity action IP packet?
+	end
+
+	flow 128770 "<flow>"
+	  on activityaction_ref 128002 // activity action IP packet?
+	end
+
+	flow 128898 "<flow>"
+	  on activityaction_ref 128258 // activity action G_PDU?
+	end
+      end
+
+      activityaction 128002 "IP packet?"
+	opaque_action
+	flow 128130 "<flow>"
+	  on activitynode_ref 128130 // decision
+	end
+      end
+
+      activitynode 128130 decision ""
+	flow 128514 "no"
+	  on activityaction_ref 128130 // activity action Drop
+	end
+
+	flow 129922 "yes"
+	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
+	end
+      end
+
+      activityaction 128130 "Drop"
+	opaque_action
+	flow 149250 "<flow>"
+	  on activitynode_ref 143234 // activity_final
+	end
+      end
+
+      parameter 134530 "Ingress Packet" explicit_type ""
+	unordered 
+	in
+	flow 129282 "<flow>"
+	  on activityaction_ref 128258 // activity action G_PDU?
+	end
+
+	flow 130434 "<flow>"
+	  on activityaction_ref 128002 // activity action IP packet?
+	end
+
+	flow 130562 "<flow>"
+	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
+	end
+
+      end
+
+      activityaction 128258 "G_PDU?"
+	opaque_action
+	flow 129538 "<flow>"
+	  on activitynode_ref 128386 // decision
+	end
+      end
+
+      activitynode 128386 decision ""
+	flow 129666 "<flow>"
+	  on activityaction_ref 128130 // activity action Drop
+	end
+
+	flow 129794 "yes"
+	  on activityaction_ref 128002 // activity action IP packet?
+	end
+      end
+
+      activityaction 128386 "Lookup PDR by tunnel id"
+	opaque_action
+	flow 130050 "<flow>"
+	  on activitynode_ref 128514 // decision
+	end
+
+	flow 138114 "<flow>"
+	  on activityobject_ref 134530 // activity object PDR
+	end
+      end
+
+      activitynode 128514 decision ""
+	flow 130178 "NULL"
+	  on activityaction_ref 128514 // activity action Report error indication
+	end
+
+	flow 147074 "<flow>"
+	  on activityaction_ref 142722 // activity action Lookup PDI in PDR
+	end
+      end
+
+      activityaction 128514 "Report error indication"
+	opaque_action
+      end
+
+      activityaction 128642 "Is PDI interface equal to INTERFACE_VALUE_ACCESS"
+	opaque_action
+	flow 130818 "<flow>"
+	  on activitynode_ref 128770 // decision
+	end
+
+	flow 137730 "<flow>"
+	  on activityaction_ref 128130 // activity action Drop
+	end
+      end
+
+      activityaction 128770 "Is PDI UE IP address equal to source address"
+	opaque_action
+	flow 137986 "<flow>"
+	  on activitynode_ref 135298 // decision
+	end
+      end
+
+      activitynode 128770 decision ""
+	flow 130946 "<flow>"
+	  on activityaction_ref 128770 // activity action Is PDI UE IP address equal to source address
+	end
+      end
+
+      parameter 134658 "Hash PDR" explicit_type ""
+	unordered 
+	in
+	flow 131202 "<flow>"
+	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
+	end
+      end
+
+      activitynode 135298 decision ""
+	flow 137858 "<flow>"
+	  on activityaction_ref 128130 // activity action Drop
+	end
+
+	flow 138626 "<flow>"
+	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	end
+      end
+
+      parameter 141186 "Hash Session" explicit_type ""
+	unordered 
+	in
+	flow 138498 "<flow>"
+	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	end
+      end
+
+      activityobject 134530 "PDR"
+	 explicit_type ""
+	unordered 
+	flow 138242 "<flow>"
+	  on activitynode_ref 128514 // decision
+	end
+
+	flow 138370 "seid"
+	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	end
+      end
+
+      activityaction 135298 "Lookup Session by seid"
+	opaque_action
+	flow 138754 "<flow>"
+	  on activitynode_ref 135426 // decision
+	end
+      end
+
+      activitynode 135426 decision ""
+	flow 138882 "<flow>"
+	  on activityaction_ref 128130 // activity action Drop
+	end
+
+	flow 139138 "<flow>"
+	  on activitynode_ref 135810 // activity_final
+	end
+      end
+
+      activityaction 135554 "Foward path"
+	call_behavior_action
+	synchronous activity_ref 141058 // Rules path
+      end
+
+      activitynode 135810 activity_final ""
+      end
+
+      activityaction 142722 "Lookup PDI in PDR"
+	opaque_action
+	flow 147202 "<flow>"
+	  on activityobject_ref 141058 // activity object PDI
+	end
+      end
+
+      activityobject 141058 "PDI"
+	 explicit_type ""
+	unordered 
+	flow 147330 "<flow>"
+	  on activityaction_ref 128642 // activity action Is PDI interface equal to INTERFACE_VALUE_ACCESS
+	end
+
+	flow 147458 "<flow>"
+	  on activityaction_ref 128770 // activity action Is PDI UE IP address equal to source address
+	end
+      end
+
+      activitynode 143234 activity_final ""
+      end
+    end
+
+    activity 128002 "Diagrams"
+      activitydiagram 167170 "input-path-diagram"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A3
+      end
+
+      activitydiagram 173826 "apply-rules-path-diagram"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A4
+      end
+    end
+
   end
 end

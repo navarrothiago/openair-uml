@@ -32,6 +32,16 @@ The project is based on [BOUML tool](https://www.bouml.fr/).
 
 ![imgs/fig147586.png](imgs/fig147586.png)
 
+## Activity diagrams
+
+### Input path
+
+![imgs/fig160642.png](imgs/fig167170.png)
+
+### Rules path
+
+![imgs/fig160642.png](imgs/fig173826.png)
+
 ## WIP
 
 Working on spgwu component. For more detail, go to [openair-cn-cups](https://github.com/OPENAIRINTERFACE/openair-cn-cups).

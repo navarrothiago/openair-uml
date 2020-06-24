@@ -1,0 +1,188 @@
+format 222
+
+activitycanvas 128002 activity_ref 141058 // Rules path
+  
+  xyzwh 70.6 6.9 2000 653 723
+  params
+    parametercanvas 129794 parameter_ref 147714 // Ingress packet
+        xyzwh 7.7 389.8 2002 127 27
+    end
+  end
+end
+activityactioncanvas 128130 activityaction_ref 142082 // activity action Check actions
+  
+  show_opaque_action_definition default
+  xyzwh 254.3 193.3 2005 173 47
+end
+activitynodecanvas 128258 activitynode_ref 142338 // initial_node
+  xyz 324.5 24.3 2005
+end
+activitynodecanvas 128514 activitynode_ref 142466 // decision
+  xyz 326 272.6 2005
+end
+activityactioncanvas 128770 activityaction_ref 142210 // activity action Check forwarding interface
+  
+  show_opaque_action_definition default
+  xyzwh 174.4 426.3 2005 219 47
+end
+activityactioncanvas 129154 activityaction_ref 142338 // activity action Drop
+  
+  show_opaque_action_definition default
+  xyzwh 600.2 328.5 2005 103 41
+end
+activitynodecanvas 129538 activitynode_ref 142594 // decision
+  xyz 268.7 510 2005
+end
+activityactioncanvas 129666 activityaction_ref 142466 // activity action Forward to PDN
+  
+  show_opaque_action_definition default
+  xyzwh 165.7 556.4 2005 109 55
+end
+activityactioncanvas 130178 activityaction_ref 142594 // activity action Forward to acess
+  
+  show_opaque_action_definition default
+  xyzwh 301.9 588.7 2005 105 53
+end
+activitynodecanvas 130434 activitynode_ref 142722 // activity_final
+  xyz 641.8 405.5 2005
+end
+activitynodecanvas 131202 activitynode_ref 142850 // activity_final
+  xyz 205.9 689.3 2005
+end
+activitynodecanvas 131458 activitynode_ref 142978 // activity_final
+  xyz 341.1 687.5 2005
+end
+activityactioncanvas 131714 activityaction_ref 142850 // activity action Buffer packet
+  
+  show_opaque_action_definition default
+  xyzwh 430.2 382.7 2005 127 41
+end
+activitynodecanvas 133378 activitynode_ref 143106 // activity_final
+  xyz 484.3 482.9 2005
+end
+activityactioncanvas 133634 activityaction_ref 142978 // activity action Lookup FAR
+  
+  show_opaque_action_definition default
+  xyzwh 255.9 78.7 2005 165 41
+end
+activityobjectcanvas 134146 activityobject_ref 141186 // activity object FAR
+  
+  xyzwh 315.2 137.2 2005 45 33
+end
+flowcanvas 128642 flow_ref 145794 // <flow>
+  decenter_begin 471
+  
+  from ref 128130 z 2006 to ref 128514
+   write_horizontally default
+end
+flowcanvas 128898 flow_ref 145922 // forward
+  decenter_end 314
+  
+  from ref 128514 z 2006 label "forward" xyz 264 266 3000 to point 241.2 288.8
+  line 131970 z 2006 to ref 128770
+   write_horizontally default
+end
+flowcanvas 129282 flow_ref 146050 // drop
+  
+  from ref 128514 z 2006 label "drop" xyz 481 269.5 3000 to point 646.9 291.2
+  line 131842 z 2006 to ref 129154
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 146178 // <flow>
+  
+  from ref 128770 z 2006 to ref 129538
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 146306 // CORE
+  
+  from ref 129538 z 2006 label "CORE" xyz 215 524.5 3000 to ref 129666
+   write_horizontally default
+end
+flowcanvas 130306 flow_ref 146434 // ACCESS
+  
+  from ref 129538 z 2006 label "ACCESS" xyz 305.5 543.5 3000 to ref 130178
+   write_horizontally default
+end
+flowcanvas 130562 flow_ref 146562 // <flow>
+  
+  from ref 129154 z 2006 to ref 130434
+   write_horizontally default
+end
+flowcanvas 131330 flow_ref 147586 // <flow>
+  
+  from ref 129666 z 2006 to ref 131202
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 147714 // <flow>
+  
+  from ref 130178 z 2006 to ref 131458
+   write_horizontally default
+end
+flowcanvas 132098 flow_ref 147842 // buffer
+  
+  from ref 128514 z 2006 label "buffer" xyz 394.5 314 3000 to point 338.4 330.6
+  line 132354 z 2006 to point 489 331
+  line 134530 z 2006 to ref 131714
+   write_horizontally default
+end
+flowcanvas 132610 flow_ref 147970 // <flow>
+  
+  from ref 129794 z 2006 to ref 131714
+   write_horizontally default
+end
+flowcanvas 133122 flow_ref 148098 // <flow>
+  decenter_begin 876
+  
+  from ref 129794 z 2006 to point 152.5 345
+  line 133250 z 2006 to ref 129154
+   write_horizontally default
+end
+flowcanvas 133506 flow_ref 148226 // <flow>
+  
+  from ref 131714 z 2006 to ref 133378
+   write_horizontally default
+end
+flowcanvas 133762 flow_ref 148354 // <flow>
+  
+  from ref 128258 z 2006 to ref 133634
+   write_horizontally default
+end
+flowcanvas 133890 flow_ref 148482 // <flow>
+  decenter_begin 610
+  
+  from ref 129794 z 2006 to point 114.8 97.9
+  line 134018 z 2006 to ref 133634
+   write_horizontally default
+end
+flowcanvas 134274 flow_ref 148610 // <flow>
+  
+  from ref 133634 z 2006 to ref 134146
+   write_horizontally default
+end
+flowcanvas 134402 flow_ref 148738 // <flow>
+  
+  from ref 134146 z 2006 to ref 128130
+   write_horizontally default
+end
+flowcanvas 134914 flow_ref 148866 // <flow>
+  decenter_end 131
+  
+  from ref 134146 z 2006 to point 200 152
+  line 135042 z 2006 to ref 128770
+   write_horizontally default
+end
+flowcanvas 135170 flow_ref 148994 // <flow>
+  decenter_begin 787
+  
+  from ref 129794 z 2006 to point 135 577
+  line 135298 z 2006 to ref 129666
+   write_horizontally default
+end
+flowcanvas 135426 flow_ref 149122 // <flow>
+  decenter_end 808
+  
+  from ref 129794 z 2006 to point 95 627
+  line 135554 z 2006 to ref 130178
+   write_horizontally default
+end
+end
