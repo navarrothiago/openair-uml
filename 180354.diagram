@@ -1,0 +1,40 @@
+format 222
+
+activitycanvas 128130 activity_ref 147586 // BPF Chain
+  
+  xyzwh 73.2 25.2 2000 670 1116
+  params
+    parametercanvas 128514 parameter_ref 154242 // ingress packet
+        xyzwh 16 125 2002 115 27
+    end
+  end
+end
+activitynodecanvas 128258 activitynode_ref 149890 // initial_node
+  xyz 356.4 71.1 2005
+end
+activityactioncanvas 128386 activityaction_ref 149506 // activity action Parse Ethernet Packet
+  
+  show_opaque_action_definition default
+  xyzwh 281 117 2005 169 47
+end
+activityactioncanvas 129282 activityaction_ref 149634 // activity action Check Protocol Type
+  
+  show_opaque_action_definition default
+  xyzwh 280 216 2005 167 43
+end
+flowcanvas 128642 flow_ref 155778 // <flow>
+  
+  from ref 128514 z 2006 to ref 128386
+   write_horizontally default
+end
+flowcanvas 128770 flow_ref 155906 // <flow>
+  
+  from ref 128258 z 2006 to ref 128386
+   write_horizontally default
+end
+flowcanvas 129410 flow_ref 156162 // <flow>
+  
+  from ref 128386 z 2006 to ref 129282
+   write_horizontally default
+end
+end

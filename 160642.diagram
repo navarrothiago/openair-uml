@@ -9,15 +9,15 @@ classinstance 128258 class_ref 135042 // spgwu_app
 classinstance 129538 class_ref 135298 // pfcp_switch
   name ""   xyz 475 12 2000 life_line_z 6025
 classinstance 130434 class_ref 135426 // pfcp_session
-  name ""   xyz 615 212 2005 life_line_z 6025
+  name ""   xyz 641 226 2005 life_line_z 6025
 fragment 130818 "Does fseid of the request exists?"
-  xyzwh 379 206 1975 807 643
+  xyzwh 379 205 1975 807 643
 end
 note 131202 "far field is validated in the 
 request"
-  font small  xyzwh 253 241 2010 147 53
+  font small  xyzwh 351 321 2010 147 53
 classinstance 131330 class_ref 142082 // pfcp_far
-  name ""   xyz 730 261 2066 life_line_z 4015
+  name ""   xyz 754 271 2066 life_line_z 4015
 note 131842 "far is passed in request"
   font small  xyzwh 689 81 2000 147 35
 note 132738 "Communication throught Sx interface"
@@ -33,12 +33,14 @@ fragment 137602 "source inteface ==  access"
   xyzwh 538 448 4005 645 137
 end
 classinstance 137730 class_ref 135298 // pfcp_switch
-  name ""   xyz 906 8 2000 life_line_z 4015
+  name ""   xyz 906 7 2000 life_line_z 4015
 fragment 138370 "source inteface ==  core"
   xyzwh 537.5 586.5 2000 646 116
 end
 classinstance 138882 class_ref 135554 // pfcp_pdr
   name ""   xyz 861 589 4005 life_line_z 4005
+note 141698 "Add PDR based on TEID"
+  color midred  font small  xyzwh 996 475 4010 171 39
 durationcanvas 128514 classinstance_ref 128258 // :spgwu_app
   xyzwh 184 89 2010 11 163
   overlappingdurationcanvas 129282
@@ -49,22 +51,25 @@ durationcanvas 128770 classinstance_ref 128130 // :itti_mw
   xyzwh 350 99 2010 11 32
 end
 durationcanvas 130178 classinstance_ref 129538 // :pfcp_switch
-  xyzwh 518 185 6030 11 503
+  xyzwh 518 186 6030 11 571
+  overlappingdurationcanvas 141826
+    xyzwh 524 253 6040 11 25
+  end
 end
 durationcanvas 134402 classinstance_ref 130434 // :pfcp_session
-  xyzwh 664 263 6030 11 25
+  xyzwh 690 276 6030 11 26
 end
 durationcanvas 134658 classinstance_ref 130434 // :pfcp_session
-  xyzwh 664 306 6035 11 109
+  xyzwh 690 306 6035 11 109
   overlappingdurationcanvas 135170
-    xyzwh 670 385 6045 11 25
+    xyzwh 696 362 6045 11 25
   end
 end
 durationcanvas 134914 classinstance_ref 131330 // :pfcp_far
-  xyzwh 761 309 4040 11 56
+  xyzwh 785 321 4040 11 44
 end
 durationcanvas 135426 classinstance_ref 130434 // :pfcp_session
-  xyzwh 664 421 6035 11 267
+  xyzwh 690 421 6035 11 312
 end
 durationcanvas 135682 classinstance_ref 133122 // :pfcp_pdr
   xyzwh 815 497 4020 11 84
@@ -90,9 +95,6 @@ end
 durationcanvas 140930 classinstance_ref 128258 // :spgwu_app
   xyzwh 184 73 2010 11 40
 end
-durationcanvas 141442 classinstance_ref 137730 // :pfcp_switch
-  xyzwh 949 355 4025 11 25
-end
 msg 128898 synchronous
   from durationcanvas_ref 128514
   to durationcanvas_ref 128770
@@ -107,44 +109,44 @@ reflexivemsg 129410 synchronous
 msg 130306 synchronous
   from durationcanvas_ref 129282
   to durationcanvas_ref 130178
-  yz 194 2025 msg operation_ref 182146 // "handle_pfcp_session_establishment_request(in request : itti_sxab_session_establishment_request, in response : itti_sxab_session_establishment_response)"
+  yz 195 2025 msg operation_ref 182146 // "handle_pfcp_session_establishment_request(in request : itti_sxab_session_establishment_request, in response : itti_sxab_session_establishment_response)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 196 177
+  label_xy 196 178
 msg 134530 synchronous
   from durationcanvas_ref 130178
   to durationcanvas_ref 134402
-  yz 263 4035 explicitmsg "new"
+  yz 277 4035 explicitmsg "new"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 579 246
+  label_xy 579 260
 msg 134786 synchronous
   from durationcanvas_ref 130178
   to durationcanvas_ref 134658
-  yz 306 4035 msg operation_ref 182274 // "create(in cr_far : pfcp::create_far, in cause : pfcp::cause_t, in offending_ie : uint16_t)"
+  yz 317 4035 msg operation_ref 182274 // "create_far(in cr_far : pfcp::create_far, in cause : pfcp::cause_t, in offending_ie : uint16_t)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 566 289
+  label_xy 566 300
 msg 135042 synchronous
   from durationcanvas_ref 134658
   to durationcanvas_ref 134914
-  yz 314 4035 explicitmsg "new"
+  yz 328 4035 explicitmsg "new"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 704 297
+  label_xy 718 313
 reflexivemsg 135298 synchronous
   to durationcanvas_ref 135170
-  yz 385 6050 msg operation_ref 182402 // "add(in far : pfcp::pfcp_far)"
+  yz 362 6050 msg operation_ref 182402 // "add_far(in far : pfcp::pfcp_far)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 687 370
+  label_xy 713 347
 msg 135554 synchronous
   from durationcanvas_ref 130178
   to durationcanvas_ref 135426
-  yz 421 6040 msg operation_ref 188930 // "create(in cr_pdr : pfcp::create_pdr, in cause : pfcp::cause_t, in offending_ie : uint16_t, in allocated_fteid : pfcp::fteid_t)"
+  yz 422 6040 msg operation_ref 188930 // "create_pdr(in cr_pdr : pfcp::create_pdr, in cause : pfcp::cause_t, in offending_ie : uint16_t, in allocated_fteid : pfcp::fteid_t)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 561 395
+  label_xy 561 396
 msg 135810 synchronous
   from durationcanvas_ref 135426
   to durationcanvas_ref 135682
   yz 499 6045 explicitmsg "new"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 730 482
+  label_xy 756 482
 msg 137986 synchronous
   from durationcanvas_ref 135682
   to durationcanvas_ref 137858
@@ -161,13 +163,13 @@ msg 139138 synchronous
   to durationcanvas_ref 139010
   yz 628 6040 explicitmsg "new"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 770 611
+  label_xy 796 611
 msg 139394 synchronous
   from durationcanvas_ref 135426
   to durationcanvas_ref 139266
   yz 677 6040 msg operation_ref 189314 // "add_pfcp_dl_pdr_by_ue_ip(in ue_ip : uint32_t, in pdr : pfcp::pfcp_pdr)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 711 660
+  label_xy 737 660
 msg 140546 asynchronous
   from durationcanvas_ref 140290
   to durationcanvas_ref 140418
@@ -179,13 +181,12 @@ reflexivemsg 141058 synchronous
   yz 73 2020 msg operation_ref 141314 // "spgwu_app_task()"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 205 63
-msg 141570 synchronous
-  from durationcanvas_ref 134658
-  to durationcanvas_ref 141442
-  yz 355 6040 msg operation_ref 195842 // "generate_fteid_s1u()"
+reflexivemsg 141954 synchronous
+  to durationcanvas_ref 141826
+  yz 253 6045 msg operation_ref 209026 // "generate_seid(in cp_fseid : fseid_t, in up_seid : u64)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 789 341
-line 137090 -_-_ decenter_begin 493
+  label_xy 531 236
+line 137090 -_-_ decenter_begin 479
   from ref 131330 z 2067 to ref 131842
 line 137218 -_-_
   from ref 131202 z 4036 to ref 135042

@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 31
+  revision 38
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -662,6 +662,22 @@ ${inlines}
 	
 	
       end
+
+      operation 209026 "generate_seid"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "cp_fseid" explicit_type "fseid_t"
+	  param in name "up_seid" explicit_type "u64"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 135426 "pfcp_session"
@@ -719,7 +735,7 @@ ${inlines}
 	
       end
 
-      operation 182274 "create"
+      operation 182274 "create_far"
 	public explicit_return_type ""
 	nparams 3
 	  param in name "cr_far" explicit_type "pfcp::create_far"
@@ -736,7 +752,7 @@ ${inlines}
 	
       end
 
-      operation 182402 "add"
+      operation 182402 "add_far"
 	public explicit_return_type ""
 	nparams 1
 	  param in name "far" explicit_type "pfcp::pfcp_far"
@@ -751,7 +767,7 @@ ${inlines}
 	
       end
 
-      operation 188930 "create"
+      operation 188930 "create_pdr"
 	public explicit_return_type ""
 	nparams 4
 	  param in name "cr_pdr" explicit_type "pfcp::create_pdr"
@@ -1408,7 +1424,7 @@ ${inlines}
 	end
 
 	flow 146434 "ACCESS"
-	  on activityaction_ref 142594 // activity action Forward to acess
+	  on activityaction_ref 142594 // activity action Forward to access
 	end
       end
 
@@ -1439,11 +1455,11 @@ ${inlines}
 	end
 
 	flow 149122 "<flow>"
-	  on activityaction_ref 142594 // activity action Forward to acess
+	  on activityaction_ref 142594 // activity action Forward to access
 	end
       end
 
-      activityaction 142594 "Forward to acess"
+      activityaction 142594 "Forward to access"
 	opaque_action
 	flow 147714 "<flow>"
 	  on activitynode_ref 142978 // activity_final
@@ -1542,7 +1558,6 @@ ${inlines}
 	flow 130562 "<flow>"
 	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
 	end
-
       end
 
       activityaction 128258 "G_PDU?"
@@ -1709,7 +1724,39 @@ ${inlines}
 	 end
 	size A4
       end
+
+      activitydiagram 180354 "bpf-gtp-chain-diagram"
+	activitydiagramsettings
+	 end
+	size A4
+      end
     end
 
+    activity 147586 "BPF Chain"
+      activitynode 149890 initial_node ""
+	flow 155906 "<flow>"
+	  on activityaction_ref 149506 // activity action Parse Ethernet Packet
+	end
+      end
+
+      activityaction 149506 "Parse Ethernet Packet"
+	opaque_action
+	flow 156162 "<flow>"
+	  on activityaction_ref 149634 // activity action Check Protocol Type
+	end
+      end
+
+      parameter 154242 "ingress packet" explicit_type ""
+	unordered 
+	in
+	flow 155778 "<flow>"
+	  on activityaction_ref 149506 // activity action Parse Ethernet Packet
+	end
+      end
+
+      activityaction 149634 "Check Protocol Type"
+	opaque_action
+      end
+    end
   end
 end
