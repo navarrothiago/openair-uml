@@ -1,6 +1,6 @@
 format 222
 "openair-uml"
-  revision 38
+  revision 41
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -545,6 +545,18 @@ ${inlines}
       end
 
       attribute 128002 "up_seid2pfcp_sessions"
+	private explicit_type "HashMap"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134658 "cp_fseid2pfcp_sessions"
 	private explicit_type "HashMap"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -1376,7 +1388,7 @@ ${inlines}
     
     activitydiagramsettings
      end
-    activity 141058 "Rules path"
+    activity 141058 "Apply UL Rules Path"
       activityaction 142082 "Check actions"
 	opaque_action
 	flow 145794 "<flow>"
@@ -1391,15 +1403,15 @@ ${inlines}
       end
 
       activitynode 142466 decision ""
-	flow 145922 "forward"
+	flow 145922 "[foward]"
 	  on activityaction_ref 142210 // activity action Check forwarding interface
 	end
 
-	flow 146050 "drop"
+	flow 146050 "[drop]"
 	  on activityaction_ref 142338 // activity action Drop
 	end
 
-	flow 147842 "buffer"
+	flow 147842 "[buffer]"
 	  on activityaction_ref 142850 // activity action Buffer packet
 	end
       end
@@ -1419,11 +1431,11 @@ ${inlines}
       end
 
       activitynode 142594 decision ""
-	flow 146306 "CORE"
+	flow 146306 "[core]"
 	  on activityaction_ref 142466 // activity action Forward to PDN
 	end
 
-	flow 146434 "ACCESS"
+	flow 146434 "[access]"
 	  on activityaction_ref 142594 // activity action Forward to access
 	end
       end
@@ -1435,7 +1447,7 @@ ${inlines}
 	end
       end
 
-      parameter 147714 "Ingress packet" explicit_type ""
+      parameter 147714 "Session" explicit_type ""
 	unordered 
 	in
 	flow 147970 "<flow>"
@@ -1499,28 +1511,25 @@ ${inlines}
 	  on activityaction_ref 142082 // activity action Check actions
 	end
 
-	flow 148866 "<flow>"
-	  on activityaction_ref 142210 // activity action Check forwarding interface
-	end
       end
     end
 
-    activity 134530 "Process Input Path"
+    activity 134530 "Process UL Input Path"
       activitynode 128002 initial_node ""
 	flow 128002 "<flow>"
-	  on activityaction_ref 128002 // activity action IP packet?
+	  on activityaction_ref 128002 // activity action Parse payload
 	end
 
 	flow 128770 "<flow>"
-	  on activityaction_ref 128002 // activity action IP packet?
+	  on activityaction_ref 128002 // activity action Parse payload
 	end
 
 	flow 128898 "<flow>"
-	  on activityaction_ref 128258 // activity action G_PDU?
+	  on activityaction_ref 128258 // activity action Parse header
 	end
       end
 
-      activityaction 128002 "IP packet?"
+      activityaction 128002 "Parse payload"
 	opaque_action
 	flow 128130 "<flow>"
 	  on activitynode_ref 128130 // decision
@@ -1528,12 +1537,12 @@ ${inlines}
       end
 
       activitynode 128130 decision ""
-	flow 128514 "no"
+	flow 128514 "[else]"
 	  on activityaction_ref 128130 // activity action Drop
 	end
 
-	flow 129922 "yes"
-	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
+	flow 129922 "[IP payload]"
+	  on activityaction_ref 128386 // activity action Lookup PDRs by tunnel id
 	end
       end
 
@@ -1548,19 +1557,19 @@ ${inlines}
 	unordered 
 	in
 	flow 129282 "<flow>"
-	  on activityaction_ref 128258 // activity action G_PDU?
+	  on activityaction_ref 128258 // activity action Parse header
 	end
 
 	flow 130434 "<flow>"
-	  on activityaction_ref 128002 // activity action IP packet?
+	  on activityaction_ref 128002 // activity action Parse payload
 	end
 
 	flow 130562 "<flow>"
-	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
+	  on activityaction_ref 128386 // activity action Lookup PDRs by tunnel id
 	end
       end
 
-      activityaction 128258 "G_PDU?"
+      activityaction 128258 "Parse header"
 	opaque_action
 	flow 129538 "<flow>"
 	  on activitynode_ref 128386 // decision
@@ -1572,87 +1581,74 @@ ${inlines}
 	  on activityaction_ref 128130 // activity action Drop
 	end
 
-	flow 129794 "yes"
-	  on activityaction_ref 128002 // activity action IP packet?
+	flow 129794 "[GTP GPDU]"
+	  on activityaction_ref 128002 // activity action Parse payload
 	end
       end
 
-      activityaction 128386 "Lookup PDR by tunnel id"
+      activityaction 128386 "Lookup PDRs by tunnel id"
 	opaque_action
 	flow 130050 "<flow>"
 	  on activitynode_ref 128514 // decision
 	end
 
 	flow 138114 "<flow>"
-	  on activityobject_ref 134530 // activity object PDR
+	  on activityobject_ref 134530 // activity object list of PDRs
 	end
       end
 
       activitynode 128514 decision ""
-	flow 130178 "NULL"
+	flow 130178 "[empty]"
 	  on activityaction_ref 128514 // activity action Report error indication
 	end
 
-	flow 147074 "<flow>"
-	  on activityaction_ref 142722 // activity action Lookup PDI in PDR
+	flow 163842 "<flow>"
+	  on activityaction_ref 156290 // activity action Get PDR
+	end
+
+	flow 167554 "[PDR]"
+	  on activitynode_ref 156802 // decision
 	end
       end
 
       activityaction 128514 "Report error indication"
 	opaque_action
-      end
-
-      activityaction 128642 "Is PDI interface equal to INTERFACE_VALUE_ACCESS"
-	opaque_action
-	flow 130818 "<flow>"
-	  on activitynode_ref 128770 // decision
-	end
-
-	flow 137730 "<flow>"
-	  on activityaction_ref 128130 // activity action Drop
-	end
-      end
-
-      activityaction 128770 "Is PDI UE IP address equal to source address"
-	opaque_action
-	flow 137986 "<flow>"
-	  on activitynode_ref 135298 // decision
+	flow 167682 "<flow>"
+	  on activitynode_ref 157442 // activity_final
 	end
       end
 
       activitynode 128770 decision ""
-	flow 130946 "<flow>"
-	  on activityaction_ref 128770 // activity action Is PDI UE IP address equal to source address
-	end
-      end
-
-      parameter 134658 "Hash PDR" explicit_type ""
-	unordered 
-	in
-	flow 131202 "<flow>"
-	  on activityaction_ref 128386 // activity action Lookup PDR by tunnel id
-	end
-      end
-
-      activitynode 135298 decision ""
-	flow 137858 "<flow>"
+	flow 165122 "[else]"
 	  on activityaction_ref 128130 // activity action Drop
 	end
 
-	flow 138626 "<flow>"
-	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	flow 174978 "[all PDI field checked]"
+	  on activityaction_ref 156162 // activity action Get UP session ID from PDR
+	end
+
+	flow 175106 "<flow>"
+	  on activitynode_ref 128514 // decision
 	end
       end
 
-      parameter 141186 "Hash Session" explicit_type ""
+      parameter 134658 "Map - TEID->PDRs" explicit_type ""
+	unordered 
+	in
+	flow 131202 "<flow>"
+	  on activityaction_ref 128386 // activity action Lookup PDRs by tunnel id
+	end
+      end
+
+      parameter 141186 "Map - seid->PFCP session" explicit_type ""
 	unordered 
 	in
 	flow 138498 "<flow>"
-	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	  on activityaction_ref 135298 // activity action Lookup Session by UP seid
 	end
       end
 
-      activityobject 134530 "PDR"
+      activityobject 134530 "list of PDRs"
 	 explicit_type ""
 	unordered 
 	flow 138242 "<flow>"
@@ -1660,38 +1656,29 @@ ${inlines}
 	end
 
 	flow 138370 "seid"
-	  on activityaction_ref 135298 // activity action Lookup Session by seid
+	  on activityaction_ref 135298 // activity action Lookup Session by UP seid
 	end
       end
 
-      activityaction 135298 "Lookup Session by seid"
+      activityaction 135298 "Lookup Session by UP seid"
 	opaque_action
-	flow 138754 "<flow>"
-	  on activitynode_ref 135426 // decision
-	end
-      end
-
-      activitynode 135426 decision ""
-	flow 138882 "<flow>"
-	  on activityaction_ref 128130 // activity action Drop
+	flow 175234 "<flow>"
+	  on activitynode_ref 128514 // decision
 	end
 
-	flow 139138 "<flow>"
-	  on activitynode_ref 135810 // activity_final
+	flow 175490 "<flow>"
+	  on activitynode_ref 164226 // decision
 	end
       end
 
       activityaction 135554 "Foward path"
 	call_behavior_action
-	synchronous activity_ref 141058 // Rules path
+	synchronous activity_ref 141058 // Apply UL Rules Path
       end
 
-      activitynode 135810 activity_final ""
-      end
-
-      activityaction 142722 "Lookup PDI in PDR"
+      activityaction 142722 "Get PDI"
 	opaque_action
-	flow 147202 "<flow>"
+	flow 163714 "<flow>"
 	  on activityobject_ref 141058 // activity object PDI
 	end
       end
@@ -1699,16 +1686,89 @@ ${inlines}
       activityobject 141058 "PDI"
 	 explicit_type ""
 	unordered 
-	flow 147330 "<flow>"
-	  on activityaction_ref 128642 // activity action Is PDI interface equal to INTERFACE_VALUE_ACCESS
-	end
-
-	flow 147458 "<flow>"
-	  on activityaction_ref 128770 // activity action Is PDI UE IP address equal to source address
+	flow 174210 "<flow>"
+	  on activitynode_ref 128770 // decision
 	end
       end
 
       activitynode 143234 activity_final ""
+      end
+
+      activityaction 156162 "Get UP session ID from PDR"
+	opaque_action
+	flow 167298 "<flow>"
+	  on activityobject_ref 147842 // activity object UP Session ID
+	end
+      end
+
+      activityaction 156290 "Get PDR"
+	opaque_action
+	flow 164354 "<flow>"
+	  on activitynode_ref 156802 // decision
+	end
+      end
+
+      activitynode 156802 decision ""
+	flow 164610 "[finished]"
+	  on activitynode_ref 156930 // activity_final
+	end
+
+	flow 164738 "<flow>"
+	  on activityobject_ref 147714 // activity object PDR
+	end
+
+	flow 164866 "[PDR selected]"
+	  on activityobject_ref 147714 // activity object PDR
+	end
+      end
+
+      activitynode 156930 activity_final ""
+      end
+
+      activityobject 147714 "PDR"
+	 explicit_type ""
+	unordered 
+	flow 164994 "<flow>"
+	  on activityaction_ref 142722 // activity action Get PDI
+	end
+
+	flow 165506 "<flow>"
+	  on activityaction_ref 135298 // activity action Lookup Session by UP seid
+	end
+
+	flow 167170 "<flow>"
+	  on activityaction_ref 156162 // activity action Get UP session ID from PDR
+	end
+      end
+
+      activityobject 147842 "UP Session ID"
+	 explicit_type ""
+	unordered 
+	flow 167426 "<flow>"
+	  on activityaction_ref 135298 // activity action Lookup Session by UP seid
+	end
+      end
+
+      activitynode 157442 activity_final ""
+      end
+
+      activitynode 164226 decision ""
+	flow 175618 "[session found]"
+	  on activityobject_ref 154498 // activity object Session
+	end
+
+	flow 175746 "<flow>"
+	  on activitynode_ref 128514 // decision
+	end
+
+      end
+
+      activityobject 154498 "Session"
+	 explicit_type ""
+	unordered 
+      end
+
+      activitynode 164354 activity_final ""
       end
     end
 

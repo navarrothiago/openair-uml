@@ -2,10 +2,10 @@ format 222
 
 activitycanvas 128130 activity_ref 147586 // BPF Chain
   
-  xyzwh 73.2 25.2 2000 670 1116
+  xyzwh 72.1 25.8 2000 670 1115
   params
     parametercanvas 128514 parameter_ref 154242 // ingress packet
-        xyzwh 16 125 2002 115 27
+        xyzwh 15.4 125.4 2002 115 27
     end
   end
 end
@@ -20,7 +20,7 @@ end
 activityactioncanvas 129282 activityaction_ref 149634 // activity action Check Protocol Type
   
   show_opaque_action_definition default
-  xyzwh 280 216 2005 167 43
+  xyzwh 280.4 216.6 2005 167 43
 end
 flowcanvas 128642 flow_ref 155778 // <flow>
   

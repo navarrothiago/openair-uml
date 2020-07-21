@@ -1,73 +1,73 @@
 format 222
 
-activitycanvas 128002 activity_ref 141058 // Rules path
+activitycanvas 128002 activity_ref 141058 // Apply UL Rules Path
   
-  xyzwh 72 7.2 2000 652 722
+  xyzwh 74.2 9.4 2000 650 720
   params
-    parametercanvas 129794 parameter_ref 147714 // Ingress packet
-        xyzwh 9.7 389.6 2002 127 27
+    parametercanvas 129794 parameter_ref 147714 // Session
+        xyzwh 11.9 83.8 2002 127 27
     end
   end
 end
 activityactioncanvas 128130 activityaction_ref 142082 // activity action Check actions
   
   show_opaque_action_definition default
-  xyzwh 254.3 193.7 2005 173 47
+  xyzwh 254.3 194.3 2005 173 47
 end
 activitynodecanvas 128258 activitynode_ref 142338 // initial_node
-  xyz 324.2 24 2005
+  xyz 325 25.8 2005
 end
 activitynodecanvas 128514 activitynode_ref 142466 // decision
-  xyz 326.2 272.6 2005
+  xyz 327 273.6 2005
 end
 activityactioncanvas 128770 activityaction_ref 142210 // activity action Check forwarding interface
   
   show_opaque_action_definition default
-  xyzwh 174.1 426.4 2005 219 47
+  xyzwh 174.9 427.8 2005 219 47
 end
 activityactioncanvas 129154 activityaction_ref 142338 // activity action Drop
   
   show_opaque_action_definition default
-  xyzwh 600.1 328.7 2005 103 41
+  xyzwh 600.7 329.5 2005 103 41
 end
 activitynodecanvas 129538 activitynode_ref 142594 // decision
-  xyz 268.7 510.2 2005
+  xyz 268.7 512 2005
 end
 activityactioncanvas 129666 activityaction_ref 142466 // activity action Forward to PDN
   
   show_opaque_action_definition default
-  xyzwh 165.8 556.1 2005 109 55
+  xyzwh 165.2 557.9 2005 109 55
 end
 activityactioncanvas 130178 activityaction_ref 142594 // activity action Forward to access
   
   show_opaque_action_definition default
-  xyzwh 301.6 588.3 2005 105 53
+  xyzwh 301.4 559.7 2005 105 53
 end
 activitynodecanvas 130434 activitynode_ref 142722 // activity_final
-  xyz 641.5 405.8 2005
+  xyz 641.3 406 2005
 end
 activitynodecanvas 131202 activitynode_ref 142850 // activity_final
-  xyz 205.2 689.2 2005
+  xyz 205.4 690.8 2005
 end
 activitynodecanvas 131458 activitynode_ref 142978 // activity_final
-  xyz 341.8 687.6 2005
+  xyz 341.6 688 2005
 end
 activityactioncanvas 131714 activityaction_ref 142850 // activity action Buffer packet
   
   show_opaque_action_definition default
-  xyzwh 430.9 382.5 2005 127 41
+  xyzwh 430.7 383.7 2005 127 41
 end
 activitynodecanvas 133378 activitynode_ref 143106 // activity_final
-  xyz 484.7 482.5 2005
+  xyz 484.3 483.9 2005
 end
 activityactioncanvas 133634 activityaction_ref 142978 // activity action Lookup FAR
   
   show_opaque_action_definition default
-  xyzwh 255.2 78.9 2005 165 41
+  xyzwh 255.4 79.7 2005 165 41
 end
 activityobjectcanvas 134146 activityobject_ref 141186 // activity object FAR
   
-  xyzwh 315.5 137.9 2005 45 33
+  xyzwh 317.7 138.7 2005 45 33
 end
 flowcanvas 128642 flow_ref 145794 // <flow>
   decenter_begin 471
@@ -75,16 +75,16 @@ flowcanvas 128642 flow_ref 145794 // <flow>
   from ref 128130 z 2006 to ref 128514
    write_horizontally default
 end
-flowcanvas 128898 flow_ref 145922 // forward
+flowcanvas 128898 flow_ref 145922 // [foward]
   decenter_end 314
   
-  from ref 128514 z 2006 label "forward" xyz 264 266 2006 to point 241.7 288
+  from ref 128514 z 2006 label "[foward]" xyz 252 268 3000 to point 241 289
   line 131970 z 2006 to ref 128770
    write_horizontally default
 end
-flowcanvas 129282 flow_ref 146050 // drop
+flowcanvas 129282 flow_ref 146050 // [drop]
   
-  from ref 128514 z 2006 label "drop" xyz 481 269 2006 to point 646.2 291.7
+  from ref 128514 z 2006 label "[drop]" xyz 476 274 3000 to point 646 292
   line 131842 z 2006 to ref 129154
    write_horizontally default
 end
@@ -93,14 +93,14 @@ flowcanvas 129922 flow_ref 146178 // <flow>
   from ref 128770 z 2006 to ref 129538
    write_horizontally default
 end
-flowcanvas 130050 flow_ref 146306 // CORE
+flowcanvas 130050 flow_ref 146306 // [core]
   
-  from ref 129538 z 2006 label "CORE" xyz 215 524 2006 to ref 129666
+  from ref 129538 z 2006 label "[core]" xyz 205.5 524.5 3000 to ref 129666
    write_horizontally default
 end
-flowcanvas 130306 flow_ref 146434 // ACCESS
+flowcanvas 130306 flow_ref 146434 // [access]
   
-  from ref 129538 z 2006 label "ACCESS" xyz 305 543 2006 to ref 130178
+  from ref 129538 z 2006 label "[access]" xyz 305 527 3000 to ref 130178
    write_horizontally default
 end
 flowcanvas 130562 flow_ref 146562 // <flow>
@@ -118,23 +118,11 @@ flowcanvas 131586 flow_ref 147714 // <flow>
   from ref 130178 z 2006 to ref 131458
    write_horizontally default
 end
-flowcanvas 132098 flow_ref 147842 // buffer
+flowcanvas 132098 flow_ref 147842 // [buffer]
   
-  from ref 128514 z 2006 label "buffer" xyz 394 314 2006 to point 338 330.8
-  line 132354 z 2006 to point 489.9 331.7
+  from ref 128514 z 2006 label "[buffer]" xyz 378 314 3000 to point 338 331
+  line 132354 z 2006 to point 489 332
   line 134530 z 2006 to ref 131714
-   write_horizontally default
-end
-flowcanvas 132610 flow_ref 147970 // <flow>
-  
-  from ref 129794 z 2006 to ref 131714
-   write_horizontally default
-end
-flowcanvas 133122 flow_ref 148098 // <flow>
-  decenter_begin 876
-  
-  from ref 129794 z 2006 to point 152.6 345.3
-  line 133250 z 2006 to ref 129154
    write_horizontally default
 end
 flowcanvas 133506 flow_ref 148226 // <flow>
@@ -150,8 +138,7 @@ end
 flowcanvas 133890 flow_ref 148482 // <flow>
   decenter_begin 610
   
-  from ref 129794 z 2006 to point 114.4 97.1
-  line 134018 z 2006 to ref 133634
+  from ref 129794 z 2006 to ref 133634
    write_horizontally default
 end
 flowcanvas 134274 flow_ref 148610 // <flow>
@@ -162,27 +149,6 @@ end
 flowcanvas 134402 flow_ref 148738 // <flow>
   
   from ref 134146 z 2006 to ref 128130
-   write_horizontally default
-end
-flowcanvas 134914 flow_ref 148866 // <flow>
-  decenter_end 131
-  
-  from ref 134146 z 2006 to point 200.8 152.6
-  line 135042 z 2006 to ref 128770
-   write_horizontally default
-end
-flowcanvas 135170 flow_ref 148994 // <flow>
-  decenter_begin 787
-  
-  from ref 129794 z 2006 to point 135.3 577.1
-  line 135298 z 2006 to ref 129666
-   write_horizontally default
-end
-flowcanvas 135426 flow_ref 149122 // <flow>
-  decenter_end 808
-  
-  from ref 129794 z 2006 to point 95.3 627.1
-  line 135554 z 2006 to ref 130178
    write_horizontally default
 end
 end
