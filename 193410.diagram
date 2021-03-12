@@ -1,113 +1,112 @@
-format 224
+format 222
 
 activitycanvas 128130 activity_ref 134530 // Parser + Traffic classifier
   
-  xyzwh 97.4 58.5 2000 1228 565
+  xyzwh 113.6 82.1 2000 776 1354
   params
     parametercanvas 130434 parameter_ref 134530 // Ingress Packet
-        xyzwh 39.8 171.7 2002 117 33
+        xyzwh 55 193.8 2002 117 33
     end
-    parametercanvas 136706 parameter_ref 134658 // TEID->PDRs
-        xyzwh 1222.6 260.4 2002 205 37
+    parametercanvas 136706 parameter_ref 134658 // eBPF Map - TEID->PDRs
+        xyzwh 41.6 434.8 2002 145 39
     end
     parametercanvas 137858 parameter_ref 141186 // Map - seid->PFCP session
-        xyzwh 20 506 2002 155 55
+        xyzwh 811.2 1132.5 2002 155 55
     end
   end
 end
 activitynodecanvas 129026 activitynode_ref 128002 // initial_node
-  xyz 316.1 110.6 2005
+  xyz 451.8 135.3 2005
 end
 activityactioncanvas 129154 activityaction_ref 128002 // activity action Parse payload
   
   show_opaque_action_definition default
-  xyzwh 640.7 161.6 2005 111 69
+  xyzwh 366.2 284.7 2005 199 41
 end
 activitynodecanvas 129410 activitynode_ref 128130 // decision
-  xyz 908.9 172 2005
+  xyz 442.7 355.6 2005
 end
 activityactioncanvas 130178 activityaction_ref 128130 // activity action Drop
   
   show_opaque_action_definition default
-  xyzwh 1134.2 163.4 2005 81 53
+  xyzwh 735.4 359.1 2005 149 41
 end
 activityactioncanvas 130818 activityaction_ref 128258 // activity action Parse header
   
   show_opaque_action_definition default
-  xyzwh 278.6 162.2 2005 97 65
+  xyzwh 392.6 195.8 2005 141 43
 end
 activitynodecanvas 132738 activitynode_ref 128386 // decision
-  xyz 466.2 176 2005
+  xyz 588 196.2 2005
 end
 activityactioncanvas 133890 activityaction_ref 128386 // activity action Lookup PDRs by tunnel id
   
   show_opaque_action_definition default
-  xyzwh 905.2 242.2 2005 115 67
+  xyzwh 355.2 429.5 2005 201 41
 end
 activitynodecanvas 134274 activitynode_ref 128514 // decision
-  xyz 671.1 258.8 2005
+  xyz 442.6 577.8 2005
 end
 activityactioncanvas 134530 activityaction_ref 128514 // activity action Report error indication
   
   show_opaque_action_definition default
-  xyzwh 357.1 244.5 2005 127 63
+  xyzwh 131.1 581.2 2005 179 41
 end
 activitynodecanvas 135810 activitynode_ref 128770 // decision
-  xyz 1162.3 377.2 2010
+  xyz 428.7 907.7 2010
 end
 activityobjectcanvas 137986 activityobject_ref 134530 // activity object list of PDRs
   
-  xyzwh 764.4 261.6 2005 95 33
+  xyzwh 413.5 514.9 2005 95 33
 end
 activityactioncanvas 139394 activityaction_ref 135298 // activity action Lookup Session by UP seid
   
   show_opaque_action_definition default
-  xyzwh 360.9 502.5 2005 109 79
+  xyzwh 335.3 1143.6 2005 231 45
 end
 activityactioncanvas 142338 activityaction_ref 142722 // activity action Get PDI
   
   show_opaque_action_definition default
-  xyzwh 929.2 358.6 2011 67 59
+  xyzwh 390.6 774.3 2011 105 41
 end
 activityobjectcanvas 142594 activityobject_ref 141058 // activity object PDI
   
-  xyzwh 1060.2 379.6 2005 41 33
+  xyzwh 418.8 847.7 2005 41 33
 end
 activitynodecanvas 145410 activitynode_ref 143234 // activity_final
-  xyz 1160.6 90.1 2005
+  xyz 793.4 246.3 2005
 end
 activityactioncanvas 145922 activityaction_ref 156162 // activity action Get UP session ID from PDR
   
   show_opaque_action_definition default
-  xyzwh 1119.6 514.8 2005 115 81
+  xyzwh 319.2 985.2 2005 243 41
 end
 activitynodecanvas 150146 activitynode_ref 156802 // decision
-  xyz 673.6 371.5 2005
+  xyz 583.9 582.4 2005
 end
 activitynodecanvas 150658 activitynode_ref 156930 // activity_final
-  xyz 498.4 378.7 2005
+  xyz 778.4 587.5 2005
 end
 activityobjectcanvas 151682 activityobject_ref 147714 // activity object PDR
   
-  xyzwh 791.1 379.3 2005 49 33
+  xyzwh 416.6 693.6 2005 49 33
 end
 activityobjectcanvas 164738 activityobject_ref 147842 // activity object UP Session ID
   
-  xyzwh 643.3 535.9 2005 117 33
+  xyzwh 660.6 987.2 2005 117 33
 end
+note 167426 "TODO"
+  xyzwh 639.2 146.4 2005 91 36
 activitynodecanvas 167682 activitynode_ref 157442 // activity_final
-  xyz 188 261.9 2005
+  xyz 206.6 507 2005
 end
 note 172034 "Check ALL PDI fields like interface=access AND ip source "
-  xyzwh 775.1 428.7 2005 201 77
+  xyzwh 580.6 841.1 2005 201 77
 activitynodecanvas 176642 activitynode_ref 164226 // decision
-  xyz 402.9 377.3 2005
+  xyz 436.9 1258 2005
 end
 activitynodecanvas 178946 activitynode_ref 164354 // activity_final
-  xyz 190.4 382.8 2005
-end
-activitynodecanvas 181762 activitynode_ref 170882 // activity_final
-  xyz 465.7 105.1 2005
+  xyz 437.6 1378 2005
 end
 flowcanvas 129538 flow_ref 128130 // <flow>
   decenter_begin 440
@@ -120,7 +119,7 @@ flowcanvas 130306 flow_ref 128514 // [else]
   decenter_begin 594
   decenter_end 533
   
-  from ref 129410 z 2006 label "[else]" xyz 1016 173 2006 to ref 130178
+  from ref 129410 z 2006 label "[else]" xyz 583 360 2006 to ref 130178
    write_horizontally default
 end
 flowcanvas 131330 flow_ref 128898 // <flow>
@@ -141,21 +140,21 @@ flowcanvas 132866 flow_ref 129538 // <flow>
 end
 flowcanvas 133122 flow_ref 129794 // [GTP GPDU]
   decenter_begin 588
-  decenter_end 515
+  decenter_end 505
   
-  from ref 132738 z 2006 label "[GTP GPDU]" xyz 516 172 2006 to ref 129154
+  from ref 132738 z 2006 label "[GTP GPDU]" xyz 621 256 2006 to point 598 302
+  line 167554 z 2006 to ref 129154
    write_horizontally default
 end
 flowcanvas 134018 flow_ref 129922 // [IP payload]
   decenter_begin 560
-  decenter_end 173
   
-  from ref 129410 z 2006 label "[IP payload]" xyz 935 210 2006 to ref 133890
+  from ref 129410 z 2006 label "[IP payload]" xyz 468 395 2006 to ref 133890
    write_horizontally default
 end
 flowcanvas 134658 flow_ref 130178 // [empty]
   
-  from ref 134274 z 2006 label "[empty]" xyz 546 248 2006 to ref 134530
+  from ref 134274 z 2006 label "[empty]" xyz 345 571 2006 to ref 134530
    write_horizontally default
 end
 flowcanvas 136834 flow_ref 131202 // <flow>
@@ -187,26 +186,26 @@ flowcanvas 145538 flow_ref 149250 // <flow>
    write_horizontally default
 end
 flowcanvas 148738 flow_ref 163714 // <flow>
-  decenter_begin 584
-  decenter_end 400
+  decenter_begin 510
+  decenter_end 636
   
   from ref 142338 z 2012 to ref 142594
    write_horizontally default
 end
 flowcanvas 150786 flow_ref 164610 // [finished]
   
-  from ref 150146 z 2006 label "[finished]" xyz 563 361 2006 to ref 150658
+  from ref 150146 z 2006 label "[finished]" xyz 672 555 2006 to ref 150658
    write_horizontally default
 end
 flowcanvas 152322 flow_ref 164866 // [PDR selected]
-  decenter_end 371
+  decenter_end 400
   
-  from ref 150146 z 2006 label "[PDR selected]" xyz 697 363 2006 to ref 151682
+  from ref 150146 z 2006 label "[PDR selected]" xyz 547 650 2006 to point 593 703
+  line 168066 z 2006 to ref 151682
    write_horizontally default
 end
 flowcanvas 152450 flow_ref 164994 // <flow>
-  decenter_begin 342
-  decenter_end 523
+  decenter_begin 589
   
   from ref 151682 z 2012 to ref 142338
    write_horizontally default
@@ -217,14 +216,16 @@ flowcanvas 164866 flow_ref 167298 // <flow>
    write_horizontally default
 end
 flowcanvas 164994 flow_ref 167426 // <flow>
-  decenter_end 586
+  decenter_end 648
   
-  from ref 164738 z 2006 to ref 139394
+  from ref 164738 z 2006 to point 713 1086
+  line 173570 z 2006 to point 480 1086
+  line 173442 z 2006 to ref 139394
    write_horizontally default
 end
 flowcanvas 166274 flow_ref 167554 // [PDR]
   
-  from ref 134274 z 2006 label "[PDR]" xyz 687 325 2006 to ref 150146
+  from ref 134274 z 2006 label "[PDR]" xyz 504 590 2006 to ref 150146
    write_horizontally default
 end
 flowcanvas 167810 flow_ref 167682 // <flow>
@@ -233,21 +234,22 @@ flowcanvas 167810 flow_ref 167682 // <flow>
    write_horizontally default
 end
 flowcanvas 168194 flow_ref 174210 // <flow>
-  decenter_begin 428
+  decenter_begin 515
   
   from ref 142594 z 2011 to ref 135810
    write_horizontally default
 end
 flowcanvas 173314 flow_ref 174978 // [all PDI field checked]
   
-  from ref 135810 z 2011 label "[all PDI field checked]" xyz 1180 452 2011 to ref 145922
+  from ref 135810 z 2011 label "[all PDI field checked]" xyz 446 952 2011 to ref 145922
    write_horizontally default
 end
 flowcanvas 173954 flow_ref 175106 // <flow>
   
-  from ref 135810 z 2011 to point 1173.5 330.2
-  line 180354 z 2011 to point 743.5 330.2
-  line 180482 z 2011 to ref 134274
+  from ref 135810 z 2011 to point 342 921
+  line 174082 z 2011 to point 346 700
+  line 174210 z 2011 to point 425 661
+  line 174466 z 2011 to ref 134274
    write_horizontally default
 end
 flowcanvas 177154 flow_ref 175490 // <flow>
@@ -257,19 +259,14 @@ flowcanvas 177154 flow_ref 175490 // <flow>
 end
 flowcanvas 177538 flow_ref 175746 // <flow>
   
-  from ref 176642 z 2006 to point 410.2 329.1
-  line 180866 z 2006 to point 613.5 330.2
-  line 180994 z 2006 to ref 134274
+  from ref 176642 z 2006 to point 283 1276
+  line 177922 z 2006 to point 287 678
+  line 177666 z 2006 to ref 134274
    write_horizontally default
 end
 flowcanvas 179202 flow_ref 176258 // [session found]
   
-  from ref 176642 z 2006 label "[session found]" xyz 260 371 2006 to ref 178946
-   write_horizontally default
-end
-flowcanvas 181890 flow_ref 182786 // <flow>
-  
-  from ref 132738 z 2006 to ref 181762
+  from ref 176642 z 2006 label "[session found]" xyz 453 1336 2006 to ref 178946
    write_horizontally default
 end
 line 173826 -_-_

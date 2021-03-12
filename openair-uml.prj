@@ -1,6 +1,6 @@
-format 222
+format 224
 "openair-uml"
-  revision 41
+  revision 50
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -68,6 +68,11 @@ format 222
     activitydiagramsettings
      end
     classdiagram 128002 "spgwu-class-diagram"
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size A4
+    end
+
+    classdiagram 141058 "itti_mw-class-diagram"
       classdiagramsettings draw_all_relations no member_max_width 0 end
       size A4
     end
@@ -1100,11 +1105,6 @@ ${inlines}
       
     end
 
-    classdiagram 141058 "itti_mw-class-diagram"
-      classdiagramsettings draw_all_relations no member_max_width 0 end
-      size A4
-    end
-
     class 149250 "itti_task_ctxts"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -1168,6 +1168,196 @@ ${inlines}
     end
   end
 
+  classview 141058 "Class PIM View"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 186882 "up_diagram"
+      classdiagramsettings member_max_width 0 end
+      size A4
+    end
+
+    class 182146 "UP_Session"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 159874 // <association>
+	relation 157570 ----
+	  a role_name "" multiplicity "1..*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 159874 // <association>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160002 // <association>
+      end
+
+      classrelation 160386 // <association>
+	relation 157826 ----
+	  a role_name "" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 160386 // <association>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160514 // <association>
+      end
+
+      classrelation 160642 // <association>
+	relation 157954 ----
+	  a role_name "" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 160642 // <association>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160770 // <association>
+      end
+
+      classrelation 160898 // <association>
+	relation 158082 ----
+	  a role_name "" multiplicity "1..*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 160898 // <association>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 161026 // <association>
+      end
+    end
+
+    class 182274 "PDR"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160002 // <association>
+	relation_ref 157570 // <association>
+      end
+
+      classrelation 160130 // <association>
+	relation 157698 ----
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160130 // <association>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 160258 // <association>
+      end
+    end
+
+    class 182402 "FAR"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 161026 // <association>
+	relation_ref 158082 // <association>
+      end
+    end
+
+    class 182530 "QER"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160770 // <association>
+	relation_ref 157954 // <association>
+      end
+    end
+
+    class 182658 "URR"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160514 // <association>
+	relation_ref 157826 // <association>
+      end
+    end
+
+    class 182786 "PDI"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160258 // <association>
+	relation_ref 157698 // <association>
+      end
+    end
+  end
+
   usecaseview 128002 "Use case view"
     
     usecasediagramsettings end
@@ -1194,6 +1384,21 @@ ${inlines}
       overlapping_bars size A4-Landscape
     end
 
+    sequencediagram 147586 "Receive packet uplink flow"
+      sequencediagramsettings end
+      overlapping_bars size 1188x1188
+    end
+
+    sequencediagram 154114 "Receive packet downlink flow"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    sequencediagram 160642 "Receive session establishment request"
+      sequencediagramsettings end
+      overlapping_bars size A3-Landscape
+    end
+
     class 149122 "user"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -1207,11 +1412,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-    end
-
-    sequencediagram 147586 "Receive packet uplink flow"
-      sequencediagramsettings end
-      overlapping_bars size 1188x1188
     end
 
     class 156034 "socket_udp_uplink_core"
@@ -1229,11 +1429,6 @@ ${inlines}
       
     end
 
-    sequencediagram 154114 "Receive packet downlink flow"
-      sequencediagramsettings end
-      overlapping_bars size A4
-    end
-
     class 169090 "socket_udp_uplink_access"
       visibility package stereotype "actor"
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -1247,11 +1442,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-    end
-
-    sequencediagram 160642 "Receive session establishment request"
-      sequencediagramsettings end
-      overlapping_bars size A4-Landscape
     end
 
     class 175618 "spgwc"
@@ -1388,7 +1578,7 @@ ${inlines}
     
     activitydiagramsettings
      end
-    activity 141058 "Apply UL Rules Path"
+    activity 141058 "Traffic Forwarder"
       activityaction 142082 "Check actions"
 	opaque_action
 	flow 145794 "<flow>"
@@ -1432,7 +1622,7 @@ ${inlines}
 
       activitynode 142594 decision ""
 	flow 146306 "[core]"
-	  on activityaction_ref 142466 // activity action Forward to PDN
+	  on activityaction_ref 142466 // activity action Forward to DN
 	end
 
 	flow 146434 "[access]"
@@ -1440,7 +1630,7 @@ ${inlines}
 	end
       end
 
-      activityaction 142466 "Forward to PDN"
+      activityaction 142466 "Forward to DN"
 	opaque_action
 	flow 147586 "<flow>"
 	  on activitynode_ref 142850 // activity_final
@@ -1463,7 +1653,7 @@ ${inlines}
 	end
 
 	flow 148994 "<flow>"
-	  on activityaction_ref 142466 // activity action Forward to PDN
+	  on activityaction_ref 142466 // activity action Forward to DN
 	end
 
 	flow 149122 "<flow>"
@@ -1510,11 +1700,10 @@ ${inlines}
 	flow 148738 "<flow>"
 	  on activityaction_ref 142082 // activity action Check actions
 	end
-
       end
     end
 
-    activity 134530 "Process UL Input Path"
+    activity 134530 "Parser + Traffic classifier"
       activitynode 128002 initial_node ""
 	flow 128002 "<flow>"
 	  on activityaction_ref 128002 // activity action Parse payload
@@ -1584,6 +1773,10 @@ ${inlines}
 	flow 129794 "[GTP GPDU]"
 	  on activityaction_ref 128002 // activity action Parse payload
 	end
+
+	flow 182786 "<flow>"
+	  on activitynode_ref 170882 // activity_final
+	end
       end
 
       activityaction 128386 "Lookup PDRs by tunnel id"
@@ -1632,7 +1825,7 @@ ${inlines}
 	end
       end
 
-      parameter 134658 "Map - TEID->PDRs" explicit_type ""
+      parameter 134658 "TEID->PDRs" explicit_type ""
 	unordered 
 	in
 	flow 131202 "<flow>"
@@ -1673,7 +1866,7 @@ ${inlines}
 
       activityaction 135554 "Foward path"
 	call_behavior_action
-	synchronous activity_ref 141058 // Apply UL Rules Path
+	synchronous activity_ref 141058 // Traffic Forwarder
       end
 
       activityaction 142722 "Get PDI"
@@ -1753,69 +1946,33 @@ ${inlines}
       end
 
       activitynode 164226 decision ""
-	flow 175618 "[session found]"
-	  on activityobject_ref 154498 // activity object Session
-	end
-
 	flow 175746 "<flow>"
 	  on activitynode_ref 128514 // decision
 	end
 
-      end
-
-      activityobject 154498 "Session"
-	 explicit_type ""
-	unordered 
+	flow 176258 "[session found]"
+	  on activitynode_ref 164354 // activity_final
+	end
       end
 
       activitynode 164354 activity_final ""
       end
+
+      activitynode 170882 activity_final ""
+      end
     end
 
     activity 128002 "Diagrams"
-      activitydiagram 167170 "input-path-diagram"
+      activitydiagram 167170 "Parser + Traffic Classifier"
 	activitydiagramsettings draw_all_relations no
 	 end
-	size A3
+	size A0
       end
 
-      activitydiagram 173826 "apply-rules-path-diagram"
+      activitydiagram 193538 "Traffic Forwarder"
 	activitydiagramsettings draw_all_relations no
 	 end
-	size A4
-      end
-
-      activitydiagram 180354 "bpf-gtp-chain-diagram"
-	activitydiagramsettings
-	 end
-	size A4
-      end
-    end
-
-    activity 147586 "BPF Chain"
-      activitynode 149890 initial_node ""
-	flow 155906 "<flow>"
-	  on activityaction_ref 149506 // activity action Parse Ethernet Packet
-	end
-      end
-
-      activityaction 149506 "Parse Ethernet Packet"
-	opaque_action
-	flow 156162 "<flow>"
-	  on activityaction_ref 149634 // activity action Check Protocol Type
-	end
-      end
-
-      parameter 154242 "ingress packet" explicit_type ""
-	unordered 
-	in
-	flow 155778 "<flow>"
-	  on activityaction_ref 149506 // activity action Parse Ethernet Packet
-	end
-      end
-
-      activityaction 149634 "Check Protocol Type"
-	opaque_action
+	size A0
       end
     end
   end

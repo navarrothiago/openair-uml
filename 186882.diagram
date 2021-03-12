@@ -1,3 +1,52 @@
 format 222
 
+classcanvas 128002 class_ref 182146 // UP_Session
+  classdiagramsettings member_max_width 0 end
+  xyz 154 177 2000
+end
+classcanvas 128130 class_ref 182274 // PDR
+  classdiagramsettings member_max_width 0 end
+  xyz 350 176 2000
+end
+classcanvas 128258 class_ref 182402 // FAR
+  classdiagramsettings member_max_width 0 end
+  xyz 296 298 2000
+end
+classcanvas 128386 class_ref 182530 // QER
+  classdiagramsettings member_max_width 0 end
+  xyz 169 302 2005
+end
+classcanvas 128514 class_ref 182658 // URR
+  classdiagramsettings member_max_width 0 end
+  xyz 43 296 2000
+end
+classcanvas 128642 class_ref 182786 // PDI
+  classdiagramsettings member_max_width 0 end
+  xyz 498 175 2000
+end
+relationcanvas 129922 relation_ref 157570 // <association>
+  from ref 128002 z 2001 to ref 128130
+  no_role_a no_role_b
+  multiplicity_a_pos 317 204 3000 multiplicity_b_pos 264 204 3000
+end
+relationcanvas 130050 relation_ref 157698 // <association>
+  from ref 128130 z 2001 to ref 128642
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130178 relation_ref 157826 // <association>
+  from ref 128002 z 2001 to ref 128514
+  no_role_a no_role_b
+  multiplicity_a_pos 96 295 3000 multiplicity_b_pos 158 217 3000
+end
+relationcanvas 130306 relation_ref 157954 // <association>
+  from ref 128002 z 2006 to ref 128386
+  no_role_a no_role_b
+  multiplicity_a_pos 176 279 3000 multiplicity_b_pos 182 225 3000
+end
+relationcanvas 130434 relation_ref 158082 // <association>
+  from ref 128002 z 2001 to ref 128258
+  no_role_a no_role_b
+  multiplicity_a_pos 259 275 3000 multiplicity_b_pos 212 225 3000
+end
 end

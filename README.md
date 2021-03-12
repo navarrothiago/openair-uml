@@ -1,6 +1,6 @@
-# Software Desin for OpenAirInterface
+# Software Design for OpenAirInterface
 
-This repository is used to keep sotfware desgin for [openair-cn-cups](https://github.com/OPENAIRINTERFACE/openair-cn-cups).
+This repository is used to keep sotfware design for [openair-spgwu-tiny](https://github.com/OPENAIRINTERFACE/openair-spgwu-tiny).
 
 The project is based on [BOUML tool](https://www.bouml.fr/). 
 
@@ -40,9 +40,9 @@ The project is based on [BOUML tool](https://www.bouml.fr/).
 
 ### Rules path
 
-![imgs/fig160642.png](imgs/fig173826.png)
+![imgs/fig160642.png](imgs/fig193538.png)
 
 ## WIP
 
-Working on spgwu component. For more detail, go to [openair-cn-cups](https://github.com/OPENAIRINTERFACE/openair-cn-cups).
+Working on spgwu component. For more detail, go to [openair-spgwu-tiny](https://github.com/OPENAIRINTERFACE/openair-spgwu-tiny).
 

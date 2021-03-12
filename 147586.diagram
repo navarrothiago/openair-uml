@@ -1,4 +1,4 @@
-format 222
+format 223
 
 classinstance 128002 class_ref 169090 // socket_udp_uplink_access
   name ""   xyz -6 4.9 2000 life_line_z 3010
@@ -11,7 +11,7 @@ classinstance 130434 class_ref 135298 // pfcp_switch
 classinstance 130818 class_ref 135554 // pfcp_pdr
   name ""   xyz 694.8 5.2 2000 life_line_z 1990
 note 131458 "Use tunnel_id to get pdr. It were created when the session is established. See create_session method."
-  xyzwh 753.8 117.6 2031 187 115
+  xyzwh 754.8 117.6 2031 191 129
 fragment 132482 "iterator pdrs"
   form "pdrs" xyzwh 10.8 287.6 1975 1164 597
 end
@@ -30,46 +30,46 @@ end
 classinstance 137730 class_ref 156034 // socket_udp_uplink_core
   name "pdn"   xyz 997.4 4.9 2000 life_line_z 2000
 durationcanvas 129154 classinstance_ref 128002 // :socket_udp_uplink_access
-  xyzwh 67 63.2 2010 11 44
+  xyzwh 88 63 2010 11 44
 end
 durationcanvas 129282 classinstance_ref 129026 // access:udp_server
-  xyzwh 220 72.2 3015 11 46
+  xyzwh 235 72 3015 11 46
 end
 durationcanvas 129794 classinstance_ref 129026 // access:udp_server
-  xyzwh 220 141 3015 11 40
+  xyzwh 235 141 3015 11 40
 end
 durationcanvas 129922 classinstance_ref 128002 // :socket_udp_uplink_access
-  xyzwh 67 136.1 2010 11 43
+  xyzwh 88 136 2010 11 43
 end
 durationcanvas 130178 classinstance_ref 128130 // :spgwu_s1u
-  xyzwh 386 164 2010 11 53
+  xyzwh 397 164 2010 11 53
 end
 durationcanvas 130562 classinstance_ref 130434 // :pfcp_switch
-  xyzwh 582 183.1 1995 11 410
+  xyzwh 590 183 1995 11 410
   overlappingdurationcanvas 131202
-    xyzwh 588 242.5 2020 11 27
+    xyzwh 596 242 2020 11 27
   end
 end
 durationcanvas 132226 classinstance_ref 130818 // :pfcp_pdr
-  xyzwh 720 338 1995 11 25
+  xyzwh 727 338 1995 11 25
 end
 durationcanvas 133378 classinstance_ref 130818 // :pfcp_pdr
-  xyzwh 720 447.1 2000 11 42
+  xyzwh 727 447 2000 11 42
 end
 durationcanvas 133634 classinstance_ref 130818 // :pfcp_pdr
-  xyzwh 720 387 2000 11 48
+  xyzwh 727 387 2000 11 48
 end
 durationcanvas 134018 classinstance_ref 133890 // :pfcp_session
-  xyzwh 833 513.5 2010 11 25
+  xyzwh 844 513 2010 11 25
 end
 durationcanvas 135170 classinstance_ref 134402 // :pfcp_far
-  xyzwh 927 557.2 2010 11 135
+  xyzwh 933 557 2010 11 135
 end
 durationcanvas 137218 classinstance_ref 130434 // :pfcp_switch
-  xyzwh 582 629.1 2000 11 58
+  xyzwh 590 629 2000 11 58
 end
 durationcanvas 137858 classinstance_ref 137730 // pdn:socket_udp_uplink_core
-  xyzwh 1072 662.2 2010 11 25
+  xyzwh 1095 662 2010 11 25
 end
 msg 129410 synchronous
   from durationcanvas_ref 129154
