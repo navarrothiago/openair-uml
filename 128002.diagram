@@ -6,11 +6,11 @@ classcanvas 128002 class_ref 128002 // gtpu_l4_stack
 end
 classcanvas 128130 class_ref 134530 // udp_server
   classdiagramsettings member_max_width 0 end
-  xyzwh 369.5 94 2000 100 41
+  xyzwh 381.5 17 2000 100 41
 end
 classcanvas 128258 class_ref 134658 // udp_application
   classdiagramsettings member_max_width 0 end
-  xyz 354.1 8.3 2000
+  xyz 365.1 92.3 2000
 end
 classcanvas 128514 class_ref 134786 // pcfp_l4_stack
   classdiagramsettings member_max_width 0 end
@@ -26,27 +26,27 @@ classcanvas 128770 class_ref 135042 // spgwu_app
 end
 classcanvas 128898 class_ref 135170 // spgwu_sx
   classdiagramsettings member_max_width 0 end
-  xyz 708.4 206.9 2000
+  xyz 705.4 203.9 2000
 end
 classcanvas 130178 class_ref 135298 // pfcp_switch
   classdiagramsettings member_max_width 0 end
-  xyz 485.5 543.5 2000
+  xyzwh 491.5 545.5 2000 343 299
 end
 classcanvas 131458 class_ref 135426 // pfcp_session
   classdiagramsettings member_max_width 0 end
-  xyz 607.1 912.1 2000
+  xyz 305.1 560.1 2000
 end
 classcanvas 131586 class_ref 135554 // pfcp_pdr
   classdiagramsettings member_max_width 0 end
-  xyz 102.7 853.5 2000
+  xyz 63.7 456.5 2000
 end
 classcanvas 131714 class_ref 142082 // pfcp_far
   classdiagramsettings member_max_width 0 end
-  xyz 139.7 995.2 2000
+  xyz 67.7 591.2 2000
 end
 classcanvas 132354 class_ref 142210 // main
   classdiagramsettings member_max_width 0 end
-  xyzwh 388.6 302.7 2000 107 55
+  xyzwh 386.6 176.7 2000 107 55
 end
 classcanvas 132482 class_ref 142338 // itti_mw
   classdiagramsettings member_max_width 0 end
@@ -54,16 +54,17 @@ classcanvas 132482 class_ref 142338 // itti_mw
 end
 classcanvas 132866 class_ref 148866 // spgwu_config
   classdiagramsettings member_max_width 0 end
-  xyz 571.6 308.7 2000
+  xyz 582.6 290.7 2000
 end
 classcanvas 133122 class_ref 148994 // async_shell_cmd
   classdiagramsettings member_max_width 0 end
-  xyz 344.4 179.9 2000
+  xyz 369.4 281.9 2000
 end
 relationcanvas 129026 relation_ref 128002 // <composition>
-  decenter_begin 512
+  decenter_begin 518
   decenter_end 536
-  from ref 128002 z 2001 to ref 128130
+  from ref 128002 z 2001 to point 110 34
+  line 135426 z 2001 to ref 128130
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
@@ -88,19 +89,20 @@ relationcanvas 129794 relation_ref 128642 // <generalisation>
 end
 relationcanvas 129922 relation_ref 128770 // <composition>
   decenter_begin 414
-  from ref 128770 z 2001 to point 772.4 424.6
+  from ref 128770 z 2001 to point 772 424
   line 130818 z 2001 to ref 128898
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130050 relation_ref 128898 // <composition>
-  from ref 128770 z 2001 to point 118 423.5
+  from ref 128770 z 2001 to point 118 423
   line 135170 z 2001 to ref 128642
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130562 relation_ref 129026 // <composition>
-  from ref 128514 z 2001 to ref 128130
+  from ref 128514 z 2001 to point 759 36
+  line 135682 z 2001 to ref 128130
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
@@ -120,6 +122,7 @@ relationcanvas 131970 relation_ref 135810 // <aggregation>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 132098 relation_ref 135938 // <aggregation>
+  decenter_begin 234
   from ref 130178 z 2001 to ref 131458
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -146,20 +149,19 @@ relationcanvas 133250 relation_ref 142850 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 133634 relation_ref 150018 // <generalisation>
-  from ref 128002 z 2001 to point 107.9 32.4
-  line 133762 z 2001 to ref 128258
+  decenter_begin 536
+  from ref 128002 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 133890 relation_ref 150146 // <generalisation>
-  from ref 128514 z 2001 to point 763.5 35.7
-  line 134018 z 2001 to ref 128258
+  from ref 128514 z 2001 to ref 128258
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 134530 relation_ref 150402 // <unidirectional association>
-  from ref 128642 z 2001 to point 25.7 236.8
-  line 135042 z 2001 to point 22.4 696.8
+  from ref 128642 z 2001 to point 25 236
+  line 135042 z 2001 to point 22 696
   line 134658 z 2001 to ref 130178
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b

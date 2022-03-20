@@ -1,6 +1,6 @@
 format 224
 "openair-uml"
-  revision 50
+  revision 51
   modified_by 2 "navarro"
   cpp_root_dir "src/"
 
@@ -46,7 +46,7 @@ format 224
   mark_for_import
   
   ncouples 1
-  key "html dir" value "/work/unicamp/openair/openair-uml/imgs/"
+  key "html dir" value "/tmp/openair-uml/imgs/"
   classview 128002 "Class view"
     
     classdiagramsettings member_max_width 0 end
